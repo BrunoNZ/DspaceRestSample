@@ -45,3 +45,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'dspace_rest_client'
