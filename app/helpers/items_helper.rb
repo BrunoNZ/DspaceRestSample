@@ -1,15 +1,11 @@
 module ItemsHelper
 
   def get_item_bitstream(item)
-    bitstream = item.bit_streams.select{|b| b.description.eql?'File Description' }.first
-    dspace_client.bitstreams.retrieve(id: bitstream.id).open
-    return tmpfile.path
+    bitstream = item.bit_streams.select{|b| b.bundle_name.eql?'THUMBNAIL' }.first
+    unless bitstream.nil?
+      file = DspaceService.create_client.bitstreams.retrieve(id: bitstream.id, bitstreams_path: 'public/images')
+      return File.basename(file.path)
+    end
   end
-
-  private
-
-  def dspace_client
-    return dspace_client ||= DspaceService.create_client
-  end
-
+  
 end
