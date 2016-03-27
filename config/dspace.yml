@@ -3,11 +3,11 @@ development:
   port: 8443
   login: admin
   password: password
-  bitstreams_path: 'public/bitstreams'
+  bitstreams_path: 'public/images'
 
 test:
   host: portalmecdev.c3sl.ufpr.br
   port: 8443
   login: admin
   password: password
-  bitstreams_path: 'public/bitstreams'
+  bitstreams_path: 'public/images'
