@@ -2,13 +2,8 @@ require 'dspace'
 
 class DspaceService
 
-  # ID's of collections
-  TEST_COLLECTION = 4
-  PORTALMEC_COLLECTION = 3
-  BD_INT_OBJETOS_COLLECTION = 2
-
   def self.create_client
-    dspace_client = Dspace::Client.new(dspace_api: 'https://demo.dspace.org/')
+    dspace_client = Dspace::Client.new(dspace_api: config['link'])
     # dspace_client.login config['login'], config['password']
     dspace_client
   end
