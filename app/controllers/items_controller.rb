@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item
-    @item = @dspace.items.find(id: params[:id], expand: 'bitstreams')
+    @item = @dspace.items.find(id: params[:id], expand: 'all')
   end
 
   def create_dspace_client

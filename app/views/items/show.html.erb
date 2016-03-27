@@ -1,4 +1,21 @@
-<ul>
-  <li><%= @item.name %></li>
-  <li><%= image_tag get_item_bitstream(@item) %></li>
-</ul>
+<h1><%= @item.name %></h1>
+<%= image_tag get_item_thumbnail(@item) %>
+
+<table border="1" style="width:70%">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item.metadata.each do |m| %>
+      <tr>
+        <td><%= m.key %></td>
+        <td><%= m.value %></td>
+        <td><%= m.language %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
