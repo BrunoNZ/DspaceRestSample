@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = @dspace.items.all(expand: 'bitstreams')
+    @items = @dspace.items.all
   end
 
   # GET /clients/1
