@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bitstreams
   resources :communities
   resources :collections
   resources :items

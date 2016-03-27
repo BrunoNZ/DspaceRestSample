@@ -1,5 +1,17 @@
 <h1><%= @item.name %></h1>
+
 <%= image_tag get_item_thumbnail(@item) %>
+
+<p>
+Bitstreams:
+<ul>
+<% get_item_bitstreams(@item).each do |b| %>
+  <li>
+    <%= link_to b.name, bitstream_path(b.id), target: '_self' %>
+  </li>
+<% end %>
+</ul>
+</p>
 
 <table border="1" style="width:70%">
   <thead>
