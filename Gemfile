@@ -46,3 +46,5 @@ group :development do
 end
 
 gem 'dspace_rest_client'
+
+gem 'simple_form'
