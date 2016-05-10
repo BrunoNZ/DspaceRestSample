@@ -4,7 +4,7 @@ class DspaceService
 
   def self.create_client
     dspace_client = Dspace::Client.new(dspace_api: config['link'])
-    dspace_client.login config['login'], config['password']
+    # dspace_client.login config['login'], config['password']
     dspace_client
   end
 
