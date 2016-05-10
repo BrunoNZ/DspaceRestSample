@@ -5,7 +5,13 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = @dspace.items.all
+    if params[:search]
+      @items = @dspace.items.find_by_metadata(
+        key: "dc.title",value: params[:search]
+      )
+    else
+      @items = @dspace.items.all
+    end
   end
 
   # GET /clients/1
