@@ -45,6 +45,6 @@ group :development do
   gem 'spring'
 end
 
-gem 'dspace_rest_client'
+gem 'dspace_rest_client', :git => "https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git"
 
 gem 'simple_form'
