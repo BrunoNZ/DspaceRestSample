@@ -1,6 +1,6 @@
 <h1>Collections</h1>
 <ul>
-<% @collections.each do |item| %>
+<% @collections.each do |collection| %>
   <li>
     <%= link_to collection.name, collection_path(collection.id) %>
   </li>
