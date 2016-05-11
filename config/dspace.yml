@@ -1,12 +1,12 @@
 development:
   host: demo.dspace.org
-  port: 8443
+  port:
   login: dspacedemo+admin@gmail.com
   password: dspace
   bitstreams_path: 'public/images'
 
 test:
-  host: portalmecdev.c3sl.ufpr.br
+  host: mecdb3.c3sl.ufpr.br
   port: 8443
   login: admin
   password: password
