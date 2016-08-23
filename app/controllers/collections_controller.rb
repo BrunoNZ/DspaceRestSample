@@ -14,7 +14,7 @@ class CollectionsController < ApplicationController
 
   # GET /collections/new
   def new
-    @collection = Dspace::Collection.new
+    @collection = Collection.new
   end
 
   # GET /collections/1/edit
@@ -24,7 +24,7 @@ class CollectionsController < ApplicationController
   # POST /collections
   # POST /collections.json
   def create
-    @collection = Dspace::Collection.new(params[:collection])
+    @collection = Collection.new(collection_params)
     respond_to do |format|
       if @dspace.collections.create(collection)
         format.html { redirect_to collections_path, notice: 'Collection was successfully created.' }
@@ -37,7 +37,6 @@ class CollectionsController < ApplicationController
   # PATCH/PUT /collections/1
   # PATCH/PUT /collections/1.json
   def update
-    @dspace.collections.update(collection_params)
     respond_to do |format|
       if @dspace.collections.update(collection_params)
         format.html { redirect_to @collection, notice: 'Collection was successfully updated.' }
@@ -64,6 +63,13 @@ class CollectionsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_collection
     @collection = @dspace.collections.find(id: params[:id], expand: 'items')
+  end
+
+  def collection_params
+    params.require(:collection).permit(
+      :name, :short_description,
+      :copyright_text, :introductory_text, :sidebar_text
+    )
   end
 
   def create_dspace_client

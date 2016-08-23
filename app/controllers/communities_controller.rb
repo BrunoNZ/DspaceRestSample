@@ -14,7 +14,7 @@ class CommunitiesController < ApplicationController
 
   # GET /communities/new
   def new
-    @community = Dspace::Community.new
+    @community = Community.new
   end
 
   # GET /communities/1/edit
@@ -24,7 +24,7 @@ class CommunitiesController < ApplicationController
   # POST /communities
   # POST /communities.json
   def create
-    community = Dspace::Community.new(params[:community])
+    community = Community.new(community_params)
     respond_to do |format|
       if @dspace.communities.create(community)
         format.html { redirect_to communities_path, notice: 'Community was successfully created.' }
@@ -37,7 +37,6 @@ class CommunitiesController < ApplicationController
   # PATCH/PUT /communities/1
   # PATCH/PUT /communities/1.json
   def update
-    @dspace.communities.update(community_params)
     respond_to do |format|
       if @dspace.communities.update(community_params)
         format.html { redirect_to @community, notice: 'Community was successfully updated.' }
@@ -64,6 +63,13 @@ class CommunitiesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_community
     @community = @dspace.communities.find(id: params[:id], expand: 'collections')
+  end
+
+  def community_params
+    params.require(:community).permit(
+      :name, :short_description,
+      :copyright_text, :introductory_text, :sidebar_text
+    )
   end
 
   def create_dspace_client

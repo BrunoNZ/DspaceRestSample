@@ -1,2 +1,3 @@
-class Bitstream < ActiveRecord::Base
+class Bitstream < Dspace::Bitstream
+  include ActiveModel::Model
 end

@@ -1,2 +1,3 @@
-class Community < ActiveRecord::Base
+class Community < Dspace::Community
+  include ActiveModel::Model
 end
