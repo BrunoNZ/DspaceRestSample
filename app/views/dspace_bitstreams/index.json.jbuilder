@@ -1,0 +1,1 @@
+json.array! @dspace_bitstreams, partial: 'dspace_bitstreams/dspace_bitstream', as: :dspace_bitstream

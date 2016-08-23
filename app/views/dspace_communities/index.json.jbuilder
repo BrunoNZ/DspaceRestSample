@@ -1,0 +1,1 @@
+json.array! @dspace_communities, partial: 'dspace_communities/dspace_community', as: :dspace_community

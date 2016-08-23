@@ -1,0 +1,1 @@
+json.array! @dspace_items, partial: 'dspace_items/dspace_item', as: :dspace_item

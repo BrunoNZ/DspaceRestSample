@@ -1,0 +1,1 @@
+json.partial! "dspace_collections/dspace_collection", dspace_collection: @dspace_collection

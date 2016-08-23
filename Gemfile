@@ -46,6 +46,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'dspace_rest_client', '~> 2.2', '>= 2.2.6' #, :git => "https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git"
+# gem 'dspace_rest_client', '~> 2.2', '>= 2.2.6' #, :git => "https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git"
+gem 'dspace_rest_client', '~> 2.2', '>= 2.2.6' , :path => "/home/bruno/Projetos/dspace-rest-client/bnzanette"
 
 gem 'simple_form'

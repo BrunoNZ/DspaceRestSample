@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :bitstreams
-  resources :communities
-  resources :collections
-  resources :items
+  resources :dspace_communities
+  resources :dspace_collections
+  resources :dspace_items
+  resources :dspace_bitstreams
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'communities#index'
+  root 'dspace_communities#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dspace Collections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dspace_collections.each do |dspace_collection| %>
+      <tr>
+        <td><%= link_to dspace_collection.name, dspace_collection_path(dspace_collection.id) %></td>
+        <td><%= link_to 'Edit', edit_dspace_collection_path(dspace_collection.id) %></td>
+        <td><%= link_to 'Destroy', dspace_collection_path(dspace_collection.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dspace Collection', new_dspace_collection_path %>

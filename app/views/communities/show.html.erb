@@ -1,7 +1,0 @@
-<h1><%= @community.name %></h1>
-
-<ul>
-  <% @community.collections.each do |collection| %>
-    <li><%= link_to collection.name, collection_path(collection.id) %></li>
-  <% end %>
-</ul>

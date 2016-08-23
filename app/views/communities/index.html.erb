@@ -1,9 +1,0 @@
-<h1>Communities</h1>
-<%= button_to new_community_path %>
-<ul>
-<% @communities.each do |community| %>
-  <li>
-    <%= link_to community.name, community_path(community.id) %>
-  </li>
-<% end %>
-</ul>

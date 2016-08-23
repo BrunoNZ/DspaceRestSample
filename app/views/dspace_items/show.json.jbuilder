@@ -1,0 +1,1 @@
+json.partial! "dspace_items/dspace_item", dspace_item: @dspace_item
