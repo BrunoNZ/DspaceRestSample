@@ -1,2 +1,3 @@
-class Item < ActiveRecord::Base
+class Item < Dspace::Item
+  include ActiveModel::Model
 end
