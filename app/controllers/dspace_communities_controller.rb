@@ -10,6 +10,7 @@ class DspaceCommunitiesController < ApplicationController
   # GET /dspace_communities/1
   # GET /dspace_communities/1.json
   def show
+    @dspace_collections = @dspace_community.collections
   end
 
   # GET /dspace_communities/new

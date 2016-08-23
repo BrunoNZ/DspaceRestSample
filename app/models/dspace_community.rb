@@ -16,5 +16,4 @@ class DspaceCommunity < Dspace::Community
     def self.dspace_client
       @dspace ||= DspaceService.create_client
     end
-
 end

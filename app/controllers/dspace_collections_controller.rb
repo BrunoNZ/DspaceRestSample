@@ -10,6 +10,9 @@ class DspaceCollectionsController < ApplicationController
   # GET /dspace_collections/1
   # GET /dspace_collections/1.json
   def show
+    puts "==========> #{@dspace_collection.id}"
+    puts "------------> #{DspaceService.create_client.collections.items(id: @dspace_collection.id)}"
+    @dspace_items = @dspace_collection.items
   end
 
   # GET /dspace_collections/new

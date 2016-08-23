@@ -8,7 +8,7 @@ class DspaceItem < Dspace::Item
   end
 
   def self.find id
-    dspace_client.items.find(id: id)
+    dspace_client.items.find(id: id, expand: 'metadata,bitstreams')
   end
 
   private

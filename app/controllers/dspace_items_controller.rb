@@ -10,6 +10,7 @@ class DspaceItemsController < ApplicationController
   # GET /dspace_items/1
   # GET /dspace_items/1.json
   def show
+    @dspace_bitstreams = @dspace_item.bit_streams || []
   end
 
   # GET /dspace_items/new
@@ -65,6 +66,7 @@ class DspaceItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_item
       @dspace_item = DspaceItem.find(params[:id])
+      @dspace_item_metadata = @dspace_item.metadata
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

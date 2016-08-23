@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_dspace_community_path(@dspace_community) %> |
+<h1><%= @dspace_community.name %></h1>
+<%= link_to 'Edit', edit_dspace_community_path(@dspace_community.id) %> |
 <%= link_to 'Back', dspace_communities_path %>
+
+<p><%= @dspace_community.introductory_text %></p>
+
+<h2>Collections in this community</h2>
+<ul>
+<% @dspace_collections.each do |dspace_collection| %>
+  <li><%= link_to dspace_collection.name, dspace_collection_path(dspace_collection.id) %></li>
+<% end %>
+</ul>

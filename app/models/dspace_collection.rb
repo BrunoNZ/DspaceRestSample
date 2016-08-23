@@ -11,6 +11,10 @@ class DspaceCollection < Dspace::Collection
     dspace_client.collections.find(id: id)
   end
 
+  def items
+    dspace_client.collections.items(id: self.id)
+  end
+
   private
 
     def self.dspace_client
