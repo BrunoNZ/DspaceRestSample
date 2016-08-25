@@ -11,6 +11,12 @@ class DspaceCommunity < Dspace::Community
     dspace_client.communities.find(id: id, expand: 'collections')
   end
 
+  def self.save(args)
+    dspace_client.communities.create(
+      Dspace::Community.new(args)
+    )
+  end
+
   private
 
     def self.dspace_client

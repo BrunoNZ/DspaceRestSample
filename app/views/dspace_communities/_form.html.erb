@@ -2,6 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :name, label: 'Name:' %>
+    <%= f.input :short_description, label: 'Short Description:' %>
+    <%= f.input :introductory_text, label: 'Introductory text (HTML):' %>
+    <%= f.input :copyright_text, label: 'Copyright text (HTML):' %>
+    <%= f.input :sidebar_text, label: 'News (HTML):' %>
+    <!-- <%= f.input :logo, as: :file, label: 'Upload new logo:' %> -->
   </div>
 
   <div class="form-actions">

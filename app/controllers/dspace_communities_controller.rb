@@ -15,7 +15,7 @@ class DspaceCommunitiesController < ApplicationController
 
   # GET /dspace_communities/new
   def new
-    @dspace_community = DspaceCommunity.new
+    @dspace_community = DspaceCommunity.new()
   end
 
   # GET /dspace_communities/1/edit
@@ -25,11 +25,9 @@ class DspaceCommunitiesController < ApplicationController
   # POST /dspace_communities
   # POST /dspace_communities.json
   def create
-    @dspace_community = DspaceCommunity.new(dspace_community_params)
-
     respond_to do |format|
-      if @dspace_community.save
-        format.html { redirect_to @dspace_community, notice: 'Dspace community was successfully created.' }
+      if @dspace_community = DspaceCommunity.save(dspace_community_params)
+        format.html { redirect_to dspace_community_path(@dspace_community.id), notice: 'Dspace community was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_community }
       else
         format.html { render :new }
