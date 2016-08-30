@@ -12,15 +12,15 @@ class DspaceCommunity < Dspace::Community
   end
 
   def self.save(args)
-    dspace_client.communities.create(
-      Dspace::Community.new(args)
-    )
+    dspace_client.communities.create(Dspace::Community.new(args))
   end
 
   def self.update(args, id)
-    dspace_client.communities.update(
-      Dspace::Community.new(args), id: id
-    )
+    dspace_client.communities.update(Dspace::Community.new(args), id: id)
+  end
+
+  def self.destroy(id)
+    dspace_client.communities.delete(id: id)
   end
 
   private

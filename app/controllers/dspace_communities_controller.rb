@@ -54,7 +54,7 @@ class DspaceCommunitiesController < ApplicationController
   # DELETE /dspace_communities/1
   # DELETE /dspace_communities/1.json
   def destroy
-    @dspace_community.destroy
+    DspaceCommunity.destroy(@dspace_community.id)
     respond_to do |format|
       format.html { redirect_to dspace_communities_url, notice: 'Dspace community was successfully destroyed.' }
       format.json { head :no_content }
