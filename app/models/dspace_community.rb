@@ -17,6 +17,12 @@ class DspaceCommunity < Dspace::Community
     )
   end
 
+  def self.update(args, id)
+    dspace_client.communities.update(
+      Dspace::Community.new(args), id: id
+    )
+  end
+
   private
 
     def self.dspace_client
