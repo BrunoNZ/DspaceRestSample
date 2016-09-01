@@ -11,8 +11,11 @@ class DspaceCollection < Dspace::Collection
     dspace_client.collections.find(id: id, expand: 'items')
   end
 
-  def self.save(args, community_id)
-    dspace_client.communities.create_collection(Dspace::Collection.new(args), id: community_id)
+  def self.save(args)
+    dspace_client.communities.create_collection(
+      Dspace::Collection.new(args),
+      id: args['community_id']
+    )
   end
 
   def self.update(args, id)

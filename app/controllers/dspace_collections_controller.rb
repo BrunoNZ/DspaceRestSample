@@ -70,7 +70,7 @@ class DspaceCollectionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_collection_params
       params.require(:dspace_collection).permit(
-        :community_id,
+        :parent_community,
         :name, :short_description, :license,
         :copyright_text, :introductory_text, :sidebar_text,
         :logo,
