@@ -10,14 +10,11 @@ class DspaceCollectionsController < ApplicationController
   # GET /dspace_collections/1
   # GET /dspace_collections/1.json
   def show
-    puts "==========> #{@dspace_collection.id}"
-    puts "------------> #{DspaceService.create_client.collections.items(id: @dspace_collection.id)}"
     @dspace_items = @dspace_collection.items
   end
 
   # GET /dspace_collections/new
   def new
-    @dspace_collection = DspaceCollection.new
   end
 
   # GET /dspace_collections/1/edit
@@ -27,11 +24,10 @@ class DspaceCollectionsController < ApplicationController
   # POST /dspace_collections
   # POST /dspace_collections.json
   def create
-    @dspace_collection = DspaceCollection.new(dspace_collection_params)
-
     respond_to do |format|
-      if @dspace_collection.save
-        format.html { redirect_to @dspace_collection, notice: 'Dspace collection was successfully created.' }
+      if @dspace_collection = DspaceCollection.save(dspace_collection_params)
+        format.html { redirect_to dspace_collection_path(@dspace_collection.id),
+          notice: 'Dspace collection was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_collection }
       else
         format.html { render :new }
@@ -44,8 +40,9 @@ class DspaceCollectionsController < ApplicationController
   # PATCH/PUT /dspace_collections/1.json
   def update
     respond_to do |format|
-      if @dspace_collection.update(dspace_collection_params)
-        format.html { redirect_to @dspace_collection, notice: 'Dspace collection was successfully updated.' }
+      if DspaceCollection.update(dspace_collection_params, params[:id])
+        format.html { redirect_to dspace_collection_path(@dspace_collection.id),
+          notice: 'Dspace collection was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_collection }
       else
         format.html { render :edit }
@@ -57,7 +54,7 @@ class DspaceCollectionsController < ApplicationController
   # DELETE /dspace_collections/1
   # DELETE /dspace_collections/1.json
   def destroy
-    @dspace_collection.destroy
+    DspaceCollection.destroy(@dspace_collection.id)
     respond_to do |format|
       format.html { redirect_to dspace_collections_url, notice: 'Dspace collection was successfully destroyed.' }
       format.json { head :no_content }
@@ -72,6 +69,11 @@ class DspaceCollectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_collection_params
-      params.fetch(:dspace_collection, {})
+      params.require(:dspace_collection).permit(
+        :community_id,
+        :name, :short_description, :license,
+        :copyright_text, :introductory_text, :sidebar_text,
+        :logo,
+      )
     end
 end

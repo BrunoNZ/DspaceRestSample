@@ -71,7 +71,8 @@ class DspaceCommunitiesController < ApplicationController
     def dspace_community_params
       params.require(:dspace_community).permit(
         :name, :short_description,
-        :copyright_text, :introductory_text, :sidebar_text
+        :copyright_text, :introductory_text, :sidebar_text,
+        :logo
       )
     end
 end

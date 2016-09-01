@@ -8,11 +8,19 @@ class DspaceCollection < Dspace::Collection
   end
 
   def self.find id
-    dspace_client.collections.find(id: id)
+    dspace_client.collections.find(id: id, expand: 'items')
   end
 
-  def items
-    dspace_client.collections.items(id: self.id)
+  def self.save(args, community_id)
+    dspace_client.communities.create_collection(Dspace::Collection.new(args), id: community_id)
+  end
+
+  def self.update(args, id)
+    dspace_client.collections.update(Dspace::Collection.new(args), id: id)
+  end
+
+  def self.destroy(id)
+    dspace_client.collections.delete(id: id)
   end
 
   private
