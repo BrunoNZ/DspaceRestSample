@@ -4,11 +4,16 @@
 <%= link_to 'Edit', edit_dspace_community_path(@dspace_community.id) %> |
 <%= link_to 'Back', dspace_communities_path %>
 
-<p><%= @dspace_community.introductory_text %></p>
+<p><h3>Short Description:</h3> <%= @dspace_community.short_description %></p>
+<p><h3>Introductory text (HTML):</h3> <%= @dspace_community.introductory_text %></p>
+<p><h3>Copyright text (HTML):</h3> <%= @dspace_community.copyright_text %></p>
+<p><h3>News (HTML):</h3> <%= @dspace_community.sidebar_text %></p>
 
-<h2>Collections in this community</h2>
+<p>
+<h3>Collections in this community:</h3>
 <ul>
 <% @dspace_collections.each do |dspace_collection| %>
   <li><%= link_to dspace_collection.name, dspace_collection_path(dspace_collection.id) %></li>
 <% end %>
 </ul>
+</p>
