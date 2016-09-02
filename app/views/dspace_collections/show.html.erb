@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= @dspace_collection.name %></h1>
 <%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
 <%= link_to 'Back', dspace_collections_path %>
 
-<p><h3>Short Description:</h3> <%= @dspace_community.short_description %></p>
-<p><h3>License:</h3> <%= @dspace_community.license %></p>
-<p><h3>Introductory text (HTML):</h3> <%= @dspace_community.introductory_text %></p>
-<p><h3>Copyright text (HTML):</h3> <%= @dspace_community.copyright_text %></p>
-<p><h3>News (HTML):</h3> <%= @dspace_community.sidebar_text %></p>
+<p><h3>Short Description:</h3> <%= @dspace_collection.short_description %></p>
+<p><h3>License:</h3> <%= @dspace_collection.license %></p>
+<p><h3>Introductory text (HTML):</h3> <%= @dspace_collection.introductory_text %></p>
+<p><h3>Copyright text (HTML):</h3> <%= @dspace_collection.copyright_text %></p>
+<p><h3>News (HTML):</h3> <%= @dspace_collection.sidebar_text %></p>
 
 <p>
 <h3>Items in this collection:</h3>
