@@ -1,13 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @dspace_item.name %></h1>
-<%= link_to 'Edit', edit_dspace_item_path(@dspace_item) %> |
+<%= link_to 'Edit', edit_dspace_item_path(@dspace_item.id) %> |
 <%= link_to 'Back', dspace_items_path %>
 
 <p><%= image_tag(get_thumbnail(@dspace_item)) %></p>
 
-<p><h3>Author:</h3> <%= get_value_of(@dspace_item_metadata, "dc.contributor") %></p>
-<p><h3>Abstract:</h3> <%= get_value_of(@dspace_item_metadata, "dc.description.abstract") %></p>
+<p><h3>Author:</h3> <%= get_value_of(@dspace_item.metadata, "dc.contributor.author") %></p>
+
+<p>
+<h3>Metadata:</h3>
+<ul>
+<% @dspace_item.metadata.each do |m| %>
+  <li><%= "#{m.key}: #{m.value}" %></li>
+<% end %>
+</ul>
+</p>
 
 <h2>Bitstreams in this item</h2>
 <ul>

@@ -1,7 +1,7 @@
 module DspaceItemsHelper
 
   def get_value_of(metadata,key)
-    m = @dspace_item_metadata.select { |m| m.key.eql?(key) }.first
+    m = metadata.select { |m| m.key.eql?(key) }.first
     unless m.nil?
       return m.value
     end

@@ -15,7 +15,6 @@ class DspaceItemsController < ApplicationController
 
   # GET /dspace_items/new
   def new
-    @dspace_item = DspaceItem.new
   end
 
   # GET /dspace_items/1/edit
@@ -25,11 +24,10 @@ class DspaceItemsController < ApplicationController
   # POST /dspace_items
   # POST /dspace_items.json
   def create
-    @dspace_item = DspaceItem.new(dspace_item_params)
-
     respond_to do |format|
-      if @dspace_item.save
-        format.html { redirect_to @dspace_item, notice: 'Dspace item was successfully created.' }
+      if @dspace_item = DspaceItem.save(dspace_item_params)
+        format.html { redirect_to dspace_items_path(@dspace_item.id),
+          notice: 'Dspace item was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_item }
       else
         format.html { render :new }
@@ -42,8 +40,9 @@ class DspaceItemsController < ApplicationController
   # PATCH/PUT /dspace_items/1.json
   def update
     respond_to do |format|
-      if @dspace_item.update(dspace_item_params)
-        format.html { redirect_to @dspace_item, notice: 'Dspace item was successfully updated.' }
+      if DspaceItem.update(dspace_item_params, params[:id])
+        format.html { redirect_to dspace_items_path(@dspace_item.id),
+          notice: 'Dspace item was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_item }
       else
         format.html { render :edit }
@@ -66,11 +65,90 @@ class DspaceItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_item
       @dspace_item = DspaceItem.find(params[:id])
-      @dspace_item_metadata = @dspace_item.metadata
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_item_params
-      params.fetch(:dspace_item, {})
+      params.require(:dspace_item).permit(
+        :parent_collection, :name,
+        metadata: [permitted_metadata_keys]
+      )
+    end
+
+    def permitted_metadata_keys
+      %w{
+        dc.contributor.author
+        dc.contributor.editor
+        dc.contributor.illustrator
+        dc.contributor.other
+        dc.contributor
+        dc.coverage.spatial
+        dc.coverage.temporal
+        dc.creator
+        dc.date.accessioned
+        dc.date.available
+        dc.date.copyright
+        dc.date.created
+        dc.date.issued
+        dc.date.submitted
+        dc.date.updated
+        dc.date
+        dc.description.abstract
+        dc.description.provenance
+        dc.description.sponsorship
+        dc.description.statementofresponsibility
+        dc.description.tableofcontents
+        dc.description.uri
+        dc.description.version
+        dc.description
+        dc.format.extent
+        dc.format.medium
+        dc.format.mimetype
+        dc.format
+        dc.identifier.citation
+        dc.identifier.govdoc
+        dc.identifier.isbn
+        dc.identifier.ismn
+        dc.identifier.issn
+        dc.identifier.other
+        dc.identifier.sici
+        dc.identifier.slug
+        dc.identifier.uri
+        dc.identifier
+        dc.language.iso
+        dc.language.rfc3066
+        dc.language
+        dc.provenance
+        dc.publisher
+        dc.relation.haspart
+        dc.relation.hasversion
+        dc.relation.isbasedon
+        dc.relation.isformatof
+        dc.relation.ispartof
+        dc.relation.ispartofseries
+        dc.relation.isreferencedby
+        dc.relation.isreplacedby
+        dc.relation.isversionof
+        dc.relation.replaces
+        dc.relation.requires
+        dc.relation.uri
+        dc.relation
+        dc.rights.holder
+        dc.rights.license
+        dc.rights.uri
+        dc.rights
+        dc.source.uri
+        dc.source
+        dc.subject.classification
+        dc.subject.ddc
+        dc.subject.lcc
+        dc.subject.lcsh
+        dc.subject.mesh
+        dc.subject.other
+        dc.subject
+        dc.title.alternative
+        dc.title
+        dc.type
+      }
     end
 end

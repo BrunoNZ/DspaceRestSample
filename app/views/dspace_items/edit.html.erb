@@ -1,6 +1,6 @@
 <h1>Editing Dspace Item</h1>
 
-<%= render 'form', dspace_item: @dspace_item %>
+<%= render partial: 'form', locals: {url: dspace_item_path, method: :put} %>
 
-<%= link_to 'Show', @dspace_item %> |
+<%= link_to 'Show', dspace_item_path(@dspace_item.id) %> |
 <%= link_to 'Back', dspace_items_path %>

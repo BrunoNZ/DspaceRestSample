@@ -14,7 +14,7 @@ class DspaceCollection < Dspace::Collection
   def self.save(args)
     dspace_client.communities.create_collection(
       Dspace::Collection.new(args),
-      id: args['community_id']
+      id: args['parent_community']
     )
   end
 
