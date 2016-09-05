@@ -2,9 +2,7 @@
 
 <h1>Dspace Communities</h1>
 
-<%= link_to 'Criar comunidade', new_dspace_community_path %>
-
-<table>
+<table class="table">
   <thead>
     <tr>
       <th colspan="3"></th>
@@ -14,9 +12,22 @@
   <tbody>
     <% @dspace_communities.each do |dspace_community| %>
       <tr>
-        <td><%= link_to dspace_community.name, dspace_community_path(dspace_community.id) %></td>
-        <td><%= link_to 'Edit', edit_dspace_community_path(dspace_community.id) %></td>
-        <td><%= link_to 'Destroy', dspace_community_path(dspace_community.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to dspace_community.name,
+                  dspace_community_path(dspace_community.id),
+                  class: 'btn btn-default' %>
+        </td>
+
+        <td><%= link_to 'Edit',
+                  edit_dspace_community_path(dspace_community.id),
+                  class: 'btn btn-primary' %>
+        </td>
+
+        <td><%= link_to 'Destroy',
+                  dspace_community_path(dspace_community.id),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' },
+                  class: 'btn btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Dspace Community', new_dspace_community_path %>
+<%= link_to 'New Dspace Community', new_dspace_community_path, class: 'btn btn-success' %>
