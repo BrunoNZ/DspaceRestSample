@@ -26,7 +26,7 @@ class DspaceItemsController < ApplicationController
   def create
     respond_to do |format|
       if @dspace_item = DspaceItem.save(dspace_item_params)
-        format.html { redirect_to dspace_items_path(@dspace_item.id),
+        format.html { redirect_to dspace_item_path(@dspace_item.id),
           notice: 'Dspace item was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_item }
       else
@@ -54,7 +54,7 @@ class DspaceItemsController < ApplicationController
   # DELETE /dspace_items/1
   # DELETE /dspace_items/1.json
   def destroy
-    @dspace_item.destroy
+    DspaceItem.destroy(@dspace_item.id)
     respond_to do |format|
       format.html { redirect_to dspace_items_url, notice: 'Dspace item was successfully destroyed.' }
       format.json { head :no_content }
