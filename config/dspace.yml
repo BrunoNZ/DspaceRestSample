@@ -1,15 +1,20 @@
 development:
-  host: localhost
-  port: 8443
-  # host: demo.dspace.org
-  # port:
+  host: demo.dspace.org
+  port:
   login: dspacedemo+admin@gmail.com
   password: dspace
   bitstreams_path: 'public/images'
 
 test:
-  host: mecdb3.c3sl.ufpr.br
-  port: 8443
-  login: admin
-  password: password
+  host: demo.dspace.org
+  port:
+  login: dspacedemo+admin@gmail.com
+  password: dspace
+  bitstreams_path: 'public/images'
+
+production:
+  host: demo.dspace.org
+  port:
+  login: <%= ENV["DSPACE_LOGIN"] %>
+  password: <%= ENV["DSPACE_PASSWORD"] %>
   bitstreams_path: 'public/images'
