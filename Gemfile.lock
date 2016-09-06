@@ -1,5 +1,6 @@
-PATH
-  remote: /home/bruno/Projetos/dspace-rest-client/bnzanette
+GIT
+  remote: https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git
+  revision: 7eb337da450b4803f97f9b01c6dc07e66a62ef4b
   specs:
     dspace_rest_client (2.2.7)
       activesupport (>= 4.2.0)
