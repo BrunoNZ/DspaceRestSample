@@ -1,7 +1,12 @@
-<%= simple_form_for(@dspace_bitstream) do |f| %>
+<%= simple_form_for :dspace_bitstream, url: url, method: method do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :parent_object, collection: DspaceItem.all %>
+    <%= f.input :name, label: 'Name:' %>
+    <%= f.input :description, label: 'Description:' %>
+    <%= f.input :bundle_name, label: 'Bundle Name:' %>
+    <%= f.input :bitstream, as: :file, label: 'Bitstream:' %>
   </div>
 
   <div class="form-actions">

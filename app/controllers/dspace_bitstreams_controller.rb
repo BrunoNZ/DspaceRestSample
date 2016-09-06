@@ -14,7 +14,6 @@ class DspaceBitstreamsController < ApplicationController
 
   # GET /dspace_bitstreams/new
   def new
-    @dspace_bitstream = DspaceBitstream.new
   end
 
   # GET /dspace_bitstreams/1/edit
@@ -24,11 +23,10 @@ class DspaceBitstreamsController < ApplicationController
   # POST /dspace_bitstreams
   # POST /dspace_bitstreams.json
   def create
-    @dspace_bitstream = DspaceBitstream.new(dspace_bitstream_params)
-
     respond_to do |format|
-      if @dspace_bitstream.save
-        format.html { redirect_to @dspace_bitstream, notice: 'Dspace bitstream was successfully created.' }
+      if @dspace_bitstream = DspaceBitstream.save(dspace_bitstream_params)
+        format.html { redirect_to dspace_bitstreams_path(@dspace_bitstream.id),
+          notice: 'Dspace bitstream was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_bitstream }
       else
         format.html { render :new }
@@ -41,8 +39,9 @@ class DspaceBitstreamsController < ApplicationController
   # PATCH/PUT /dspace_bitstreams/1.json
   def update
     respond_to do |format|
-      if @dspace_bitstream.update(dspace_bitstream_params)
-        format.html { redirect_to @dspace_bitstream, notice: 'Dspace bitstream was successfully updated.' }
+      if DspaceBitstream.update(dspace_bitstream_params, params[:id])
+        format.html { redirect_to dspace_bitstreams_path(@dspace_bitstream.id),
+          notice: 'Dspace bitstream was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_bitstream }
       else
         format.html { render :edit }
@@ -54,7 +53,7 @@ class DspaceBitstreamsController < ApplicationController
   # DELETE /dspace_bitstreams/1
   # DELETE /dspace_bitstreams/1.json
   def destroy
-    @dspace_bitstream.destroy
+    DspaceBitstream.destroy(@dspace_bitstream.id)
     respond_to do |format|
       format.html { redirect_to dspace_bitstreams_url, notice: 'Dspace bitstream was successfully destroyed.' }
       format.json { head :no_content }
@@ -69,6 +68,10 @@ class DspaceBitstreamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_bitstream_params
-      params.fetch(:dspace_bitstream, {})
+      params.require(:dspace_bitstream).permit(
+        :parent_object,
+        :name, :description, :bundle_name,
+        :bitstream
+      )
     end
 end
