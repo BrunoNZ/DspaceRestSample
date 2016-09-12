@@ -3,6 +3,14 @@ Rails.application.routes.draw do
   resources :dspace_collections
   resources :dspace_items
   resources :dspace_bitstreams
+
+  namespace :dspace_users do
+    get 'show'
+    get 'login'
+    post 'login_action'
+    post 'logout_action'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
