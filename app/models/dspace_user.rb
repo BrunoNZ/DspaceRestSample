@@ -16,20 +16,19 @@ class DspaceUser
   end
 
   def self.current_status
-    DspaceUser.new(JSON.parse(dspace_client.status))
+    DspaceUser.new(JSON.parse(::DspaceClient.status))
   end
 
   def self.login(args)
-    if dspace_client.login args['email'], args['password'] then
+    if ::DspaceClient.login args['email'], args['password'] then
       return true
     end
     return false
   end
 
-  private
-
-    def self.dspace_client
-      @dspace ||= DspaceService.create_client
-    end
+  def self.signed_in?
+    user = current_status
+    user.authenticated
+  end
 
 end

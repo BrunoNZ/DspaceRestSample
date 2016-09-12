@@ -11,17 +11,13 @@ class DspaceUsersController < ApplicationController
 
   # POST /users/login_action
   def login_action
-    respond_to do |format|
-      if DspaceUser.login(user_params)
-        format.html { redirect_to dspace_users_show_path,
-          notice: 'Welcome! You have signed up successfully.' }
-        # format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :login }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if DspaceUser.login(user_params)
+      redirect_to dspace_users_show_path,
+        notice: 'Welcome! You have signed up successfully.'
+    else
+      redirect_to dspace_users_login_path,
+        notice: 'ERROR!'
     end
-
   end
 
   # POST /users/logout_action
