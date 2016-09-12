@@ -4,15 +4,15 @@ class DspaceBitstream < Dspace::Bitstream
   include ActiveModel::Model
 
   def self.all
-    dspace_client.bitstreams.all
+    ::DspaceClient.bitstreams.all
   end
 
   def self.find id
-    dspace_client.bitstreams.find(id: id)
+    ::DspaceClient.bitstreams.find(id: id)
   end
 
   def self.save(args)
-    dspace_client.items.add_bitstream(
+    ::DspaceClient.items.add_bitstream(
       args['bitstream'],
       id: args['parent_object'],
       name: args['name'],
@@ -22,12 +22,12 @@ class DspaceBitstream < Dspace::Bitstream
   end
 
   def self.update(args, id)
-    dspace_client.bitstreams.update(
+    ::DspaceClient.bitstreams.update(
       Dspace::Bitstream.new(args),
       id: id
     )
     unless args['bitstream'].nil?
-      dspace_client.bitstreams.update_data(
+      ::DspaceClient.bitstreams.update_data(
         args['bitstream'],
         id: id
       )
@@ -35,13 +35,7 @@ class DspaceBitstream < Dspace::Bitstream
   end
 
   def self.destroy(id)
-    dspace_client.bitstreams.delete(id: id)
+    ::DspaceClient.bitstreams.delete(id: id)
   end
-
-  private
-
-    def self.dspace_client
-      @dspace ||= DspaceService.create_client
-    end
 
 end

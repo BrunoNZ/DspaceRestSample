@@ -3,13 +3,7 @@ require 'dspace'
 class DspaceService < Dspace::Client
 
   def self.create_client
-    dspace_client = self.new(dspace_api: config['link'])
-    # dspace_client.login config['login'], config['password'] ? puts "NO_LOGIN"
-    dspace_client
-  end
-
-  def self.link
-    config['link']
+    self.new(dspace_api: config['link'])
   end
 
   private
@@ -21,8 +15,8 @@ class DspaceService < Dspace::Client
     yml = yml_file.fetch(Rails.env)
 
     config['link'] = "https://#{yml['host']}:#{yml['port']}"
-    config['login'] = yml['login']
-    config['password'] = yml['password']
+    # config['login'] = yml['login']
+    # config['password'] = yml['password']
 
     config
   end

@@ -4,31 +4,26 @@ class DspaceCollection < Dspace::Collection
   include ActiveModel::Model
 
   def self.all
-    dspace_client.collections.all
+    ::DspaceClient.collections.all
   end
 
   def self.find id
-    dspace_client.collections.find(id: id, expand: 'items')
+    ::DspaceClient.collections.find(id: id, expand: 'items')
   end
 
   def self.save(args)
-    dspace_client.communities.create_collection(
+    ::DspaceClient.communities.create_collection(
       Dspace::Collection.new(args),
       id: args['parent_community']
     )
   end
 
   def self.update(args, id)
-    dspace_client.collections.update(Dspace::Collection.new(args), id: id)
+    ::DspaceClient.collections.update(Dspace::Collection.new(args), id: id)
   end
 
   def self.destroy(id)
-    dspace_client.collections.delete(id: id)
+    ::DspaceClient.collections.delete(id: id)
   end
 
-  private
-
-    def self.dspace_client
-      @dspace ||= DspaceService.create_client
-    end
 end
