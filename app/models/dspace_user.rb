@@ -1,6 +1,6 @@
 require 'dspace'
 
-class User
+class DspaceUser
   include ActiveModel::Model
 
   attr_reader :email, :fullname,
@@ -16,7 +16,7 @@ class User
   end
 
   def self.current_status
-    User.new(JSON.parse(dspace_client.status))
+    DspaceUser.new(JSON.parse(dspace_client.status))
   end
 
   def self.login(args)
