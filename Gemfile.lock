@@ -1,6 +1,7 @@
 GIT
   remote: https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git
-  revision: 7eb337da450b4803f97f9b01c6dc07e66a62ef4b
+  revision: a9b3ef97e7a1ce2b6ae7fd95c403e94cf9ec64c3
+  branch: implement-dspace6-auth
   specs:
     dspace_rest_client (2.2.7)
       activesupport (>= 4.2.0)
@@ -51,7 +52,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (7.1.1)
-    autoprefixer-rails (6.4.1)
+    autoprefixer-rails (6.4.1.1)
       execjs
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
