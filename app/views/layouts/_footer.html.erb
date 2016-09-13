@@ -1,0 +1,39 @@
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <ul class="list-inline">
+          <li>
+            <%= link_to 'http://www.c3sl.ufpr.br/' do %>
+              <%= image_tag 'c3sl_logo.png', class: 'footer_logo' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'http://creativecommons.org/licenses/by-sa/4.0/' do %>
+            <%= image_tag 'cc.png', alt: 'Creative Commons License' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'http://www.dspace.org/' do %>
+              <%= image_tag 'dspace_logo.png', class: 'footer_logo' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-12 text-center">
+        <b>Based on:</b>
+          <%= link_to 'Dspace REST Client Rubygem',
+            'https://rubygems.org/gems/dspace_rest_client/' %>
+        /
+        <b>Built by:</b>
+          <%= link_to 'Bruno N. Zanette',
+            'https://gitlab.c3sl.ufpr.br/u/bnzanette' %>
+        /
+        <b>View this app code:</b>
+          <%= link_to 'DspaceRestSample',
+            'https://gitlab.c3sl.ufpr.br/bnzanette/DspaceRestSample' %>
+      </div>
+    </div>
+  </div>
+</footer>

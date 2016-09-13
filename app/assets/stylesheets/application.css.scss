@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.footer_logo {
+  max-height: 50px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
