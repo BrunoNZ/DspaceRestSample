@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'show'
     get 'login'
     post 'login_action'
-    post 'logout_action'
+    delete 'logout_action'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

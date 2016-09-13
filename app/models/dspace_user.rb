@@ -16,11 +16,18 @@ class DspaceUser
   end
 
   def self.current_status
-    DspaceUser.new(JSON.parse(::DspaceClient.status))
+    DspaceUser.new(::DspaceClient.status)
   end
 
   def self.login(args)
-    if ::DspaceClient.login args['email'], args['password'] then
+    if ::DspaceClient.login args['email'], args['password']
+      return true
+    end
+    return false
+  end
+
+  def self.logout
+    if ::DspaceClient.logout
       return true
     end
     return false

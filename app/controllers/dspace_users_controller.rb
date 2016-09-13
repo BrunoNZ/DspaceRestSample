@@ -15,14 +15,19 @@ class DspaceUsersController < ApplicationController
       redirect_to dspace_users_show_path,
         notice: 'Welcome! You have signed up successfully.'
     else
-      redirect_to dspace_users_login_path,
-        notice: 'ERROR!'
+      redirect_to dspace_users_login_path
     end
   end
 
-  # POST /users/logout_action
+  # DELETE /users/logout_action
   def logout_action
-    DspaceUser.logout
+    if DspaceUser.logout
+      redirect_to dspace_users_show_path,
+        notice: 'Signed out successfully.'
+    else
+      redirect_to dspace_users_login_path
+    end
+
   end
 
   private
