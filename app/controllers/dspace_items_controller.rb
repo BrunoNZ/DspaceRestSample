@@ -70,6 +70,7 @@ class DspaceItemsController < ApplicationController
 
     def set_page_options
       @page = params['page'].to_i || 0
+      @page < 0 ? @page = 0 : @page
       @limit = 15
       @offset = @page * @limit
     end
