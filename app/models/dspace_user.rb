@@ -20,10 +20,12 @@ class DspaceUser
   end
 
   def self.login(args)
-    if ::DspaceClient.login args['email'], args['password']
-      return true
+    begin
+      access_token = ::DspaceClient.login args['email'], args['password']
+    rescue
+      access_token = nil
     end
-    return false
+    access_token
   end
 
   def self.logout

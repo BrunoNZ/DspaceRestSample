@@ -2,22 +2,15 @@ require 'dspace'
 
 class DspaceService < Dspace::Client
 
-  def self.create_client
-    self.new(dspace_api: config['link'])
-  end
-
   private
 
-  def self.config
-    config = {}
+  def access_token
+    @dspace_access_token = session[:dspace_access_token]
+  end
 
+  def link
     yml_file = YAML.load_file(Rails.root.join('config').to_s.concat('/dspace.yml'))
     yml = yml_file.fetch(Rails.env)
-
-    config['link'] = "https://#{yml['host']}:#{yml['port']}"
-    # config['login'] = yml['login']
-    # config['password'] = yml['password']
-
-    config
+    @link = "https://#{yml['host']}:#{yml['port']}"
   end
 end
