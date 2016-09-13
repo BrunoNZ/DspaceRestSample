@@ -2,6 +2,11 @@
 <%= link_to 'Edit', edit_dspace_community_path(@dspace_community.id) %> |
 <%= link_to 'Back', dspace_communities_path %>
 
+</br></br>
+<%= link_to 'Create Collection',
+      new_dspace_collection_path(parent: @dspace_community.id),
+      class: 'btn btn-success' %>
+
 <p><h3>Short Description:</h3> <%= @dspace_community.short_description %></p>
 <p><h3>Introductory text (HTML):</h3> <%= @dspace_community.introductory_text %></p>
 <p><h3>Copyright text (HTML):</h3> <%= @dspace_community.copyright_text %></p>

@@ -16,6 +16,8 @@ class DspaceItemsController < ApplicationController
 
   # GET /dspace_items/new
   def new
+    @parent = params['parent']
+    @disabled_selection = @parent.nil? ? false : true
   end
 
   # GET /dspace_items/1/edit

@@ -2,6 +2,12 @@
 <%= link_to 'Edit', edit_dspace_item_path(@dspace_item.id) %> |
 <%= link_to 'Back', dspace_items_path %>
 
+</br></br>
+<%= link_to 'Create Bitstream',
+      new_dspace_bitstream_path(parent: @dspace_item.id),
+      class: 'btn btn-success' %>
+
+
 <p><%= image_tag(get_thumbnail(@dspace_item)) %></p>
 
 <p><h3>Author:</h3> <%= get_value_of(@dspace_item.metadata, "dc.contributor.author") %></p>
