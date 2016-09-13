@@ -11,7 +11,7 @@ module DspaceItemsHelper
   def get_thumbnail(item)
     bitstream = item.bit_streams.select{|b| b.bundle_name.eql?'THUMBNAIL' }.first
     unless bitstream.nil?
-      file = DspaceService.create_client.bitstreams.retrieve(id: bitstream.id, bitstreams_path: 'public/images')
+      file = DspaceService.client.bitstreams.retrieve(id: bitstream.id, bitstreams_path: 'public/images')
       return File.basename(file.path)
     end
     return ""
