@@ -3,11 +3,11 @@ require 'dspace'
 class DspaceBitstream < Dspace::Bitstream
   include ActiveModel::Model
 
-  def self.all
-    ::DspaceClient.bitstreams.all
+  def self.all(limit=25,offset=0)
+    ::DspaceClient.bitstreams.all(limit: limit, offset: offset)
   end
 
-  def self.find id
+  def self.find(id)
     ::DspaceClient.bitstreams.find(id: id)
   end
 

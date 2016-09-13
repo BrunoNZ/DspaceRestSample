@@ -3,11 +3,11 @@ require 'dspace'
 class DspaceItem < Dspace::Item
   include ActiveModel::Model
 
-  def self.all
-    ::DspaceClient.items.all
+  def self.all(limit=25,offset=0)
+    ::DspaceClient.items.all(limit: limit, offset: offset)
   end
 
-  def self.find id
+  def self.find(id)
     ::DspaceClient.items.find(id: id, expand: 'metadata,bitstreams')
   end
 

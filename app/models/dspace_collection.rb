@@ -3,11 +3,11 @@ require 'dspace'
 class DspaceCollection < Dspace::Collection
   include ActiveModel::Model
 
-  def self.all
-    ::DspaceClient.collections.all
+  def self.all(limit=25,offset=0)
+    ::DspaceClient.collections.all(limit: limit, offset: offset)
   end
 
-  def self.find id
+  def self.find(id)
     ::DspaceClient.collections.find(id: id, expand: 'items')
   end
 

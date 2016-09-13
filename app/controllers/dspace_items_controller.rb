@@ -1,10 +1,11 @@
 class DspaceItemsController < ApplicationController
   before_action :set_dspace_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_page_options, only: [:index]
 
   # GET /dspace_items
   # GET /dspace_items.json
   def index
-    @dspace_items = DspaceItem.all
+    @dspace_items = DspaceItem.all(@limit, @offset)
   end
 
   # GET /dspace_items/1
@@ -65,6 +66,12 @@ class DspaceItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_item
       @dspace_item = DspaceItem.find(params[:id])
+    end
+
+    def set_page_options
+      @page = params['page'].to_i || 0
+      @limit = 15
+      @offset = @page * @limit
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

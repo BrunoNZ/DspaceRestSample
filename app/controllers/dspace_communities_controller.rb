@@ -1,10 +1,11 @@
 class DspaceCommunitiesController < ApplicationController
   before_action :set_dspace_community, only: [:show, :edit, :update, :destroy]
+  before_action :set_page_options, only: [:index]
 
   # GET /dspace_communities
   # GET /dspace_communities.json
   def index
-    @dspace_communities = DspaceCommunity.all
+    @dspace_communities = DspaceCommunity.all(@limit, @offset)
   end
 
   # GET /dspace_communities/1
@@ -65,6 +66,12 @@ class DspaceCommunitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_community
       @dspace_community = DspaceCommunity.find(params[:id])
+    end
+
+    def set_page_options
+      @page = params['page'].to_i || 0
+      @limit = 15
+      @offset = @page * @limit
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

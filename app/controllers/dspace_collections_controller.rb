@@ -1,10 +1,11 @@
 class DspaceCollectionsController < ApplicationController
   before_action :set_dspace_collection, only: [:show, :edit, :update, :destroy]
+  before_action :set_page_options, only: [:index]
 
   # GET /dspace_collections
   # GET /dspace_collections.json
   def index
-    @dspace_collections = DspaceCollection.all
+    @dspace_collections = DspaceCollection.all(@limit, @offset)
   end
 
   # GET /dspace_collections/1
@@ -65,6 +66,12 @@ class DspaceCollectionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_collection
       @dspace_collection = DspaceCollection.find(params[:id])
+    end
+
+    def set_page_options
+      @page = params['page'].to_i || 0
+      @limit = 15
+      @offset = @page * @limit
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

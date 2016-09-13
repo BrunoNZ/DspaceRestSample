@@ -1,10 +1,11 @@
 class DspaceBitstreamsController < ApplicationController
   before_action :set_dspace_bitstream, only: [:show, :edit, :update, :destroy]
+  before_action :set_page_options, only: [:index]
 
   # GET /dspace_bitstreams
   # GET /dspace_bitstreams.json
   def index
-    @dspace_bitstreams = DspaceBitstream.all
+    @dspace_bitstreams = DspaceBitstream.all(@limit, @offset)
   end
 
   # GET /dspace_bitstreams/1
@@ -64,6 +65,12 @@ class DspaceBitstreamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_bitstream
       @dspace_bitstream = DspaceBitstream.find(params[:id])
+    end
+
+    def set_page_options
+      @page = params['page'].to_i || 0
+      @limit = 15
+      @offset = @page * @limit
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
