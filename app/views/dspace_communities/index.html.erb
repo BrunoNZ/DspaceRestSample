@@ -12,21 +12,29 @@
   <tbody>
     <% @dspace_communities.each do |dspace_community| %>
       <tr>
-        <td><%= link_to dspace_community.name,
+        <td>
+          <%= link_to dspace_community.name,
                   dspace_community_path(dspace_community.id),
+                  title: dspace_community.name,
                   class: 'btn btn-default' %>
         </td>
 
-        <td><%= link_to 'Edit',
-                  edit_dspace_community_path(dspace_community.id),
-                  class: 'btn btn-primary' %>
+        <td>
+          <%= link_to edit_dspace_community_path(dspace_community.id),
+                  title: 'Edit',
+                  class: 'btn btn-primary' do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
         </td>
 
-        <td><%= link_to 'Destroy',
-                  dspace_community_path(dspace_community.id),
+        <td>
+          <%= link_to dspace_community_path(dspace_community.id),
+                  title: 'Destroy',
                   method: :delete,
                   data: { confirm: 'Are you sure?' },
-                  class: 'btn btn-danger' %>
+                  class: 'btn btn-danger' do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
         </td>
       </tr>
     <% end %>

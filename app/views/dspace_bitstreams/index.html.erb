@@ -12,22 +12,29 @@
   <tbody>
     <% @dspace_bitstreams.each do |dspace_bitstream| %>
       <tr>
-        <td><%= link_to dspace_bitstream.name,
+        <td>
+          <%= link_to dspace_bitstream.name,
                   dspace_bitstream_path(dspace_bitstream.id),
+                  title: dspace_bitstream.name,
                   class: 'btn btn-default' %>
         </td>
 
-        <td><%= link_to 'Edit',
-                  edit_dspace_bitstream_path(dspace_bitstream.id),
-                  class: 'btn btn-primary' %>
+        <td>
+          <%= link_to edit_dspace_bitstream_path(dspace_bitstream.id),
+                  title: 'Edit',
+                  class: 'btn btn-primary' do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
         </td>
 
-        <td><%= link_to 'Destroy',
-                  dspace_bitstream_path(dspace_bitstream.id),
+        <td>
+          <%= link_to dspace_bitstream_path(dspace_bitstream.id),
+                  title: 'Destroy',
                   method: :delete,
                   data: { confirm: 'Are you sure?' },
-                  class: 'btn btn-danger' %>
-
+                  class: 'btn btn-danger' do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
         </td>
       </tr>
     <% end %>
