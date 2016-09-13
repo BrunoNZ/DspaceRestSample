@@ -1,4 +1,4 @@
-<% if DspaceUser.signed_in? %>
+<% if @_current_user.signed_in? %>
   <li><%= link_to 'UserInfo', dspace_users_show_path %></li>
   <li><%= link_to 'Logout', dspace_users_logout_action_path, :method=>'delete' %></li>
 <% else %>

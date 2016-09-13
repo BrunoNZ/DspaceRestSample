@@ -4,15 +4,15 @@ class DspaceItem < Dspace::Item
   include ActiveModel::Model
 
   def self.all(limit=25,offset=0)
-    ::DspaceClient.items.all(limit: limit, offset: offset)
+    DspaceService.client.items.all(limit: limit, offset: offset)
   end
 
   def self.find(id)
-    ::DspaceClient.items.find(id: id, expand: 'metadata,bitstreams')
+    DspaceService.client.items.find(id: id, expand: 'metadata,bitstreams')
   end
 
   def self.save(args)
-    ::DspaceClient.collections.create_item(
+    DspaceService.client.collections.create_item(
       Dspace::Item.new(
         'metadata' => generate_metadata_hash(args['metadata'])
       ),
@@ -21,14 +21,14 @@ class DspaceItem < Dspace::Item
   end
 
   def self.update(args, id)
-    ::DspaceClient.items.update_metadata(
+    DspaceService.client.items.update_metadata(
       'metadata' => generate_metadata_hash(args['metadata']),
       id: id
     )
   end
 
   def self.destroy(id)
-    ::DspaceClient.items.delete(id: id)
+    DspaceService.client.items.delete(id: id)
   end
 
   private

@@ -1,6 +1,5 @@
 class DspaceUsersController < ApplicationController
-  before_action :set_user, only: [:show]
-  after_action :set_current_user, only: [:login_action, :logout_action]
+  after_action :set_dspace_access_token, only: [:login_action, :logout_action]
 
   # GET /users/login
   def show
@@ -34,12 +33,7 @@ class DspaceUsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = DspaceUser.current_status
-    end
-
-    def set_current_user
+    def set_dspace_access_token
       session[:dspace_access_token] = @access_token
     end
 
