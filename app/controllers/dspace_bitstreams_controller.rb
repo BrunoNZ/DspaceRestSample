@@ -42,7 +42,7 @@ class DspaceBitstreamsController < ApplicationController
   def update
     respond_to do |format|
       if DspaceBitstream.update(dspace_bitstream_params, params[:id])
-        format.html { redirect_to dspace_bitstreams_path(@dspace_bitstream.id),
+        format.html { redirect_to dspace_bitstream_path(@dspace_bitstream.id),
           notice: 'Dspace bitstream was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_bitstream }
       else
