@@ -2,12 +2,15 @@
 <%= link_to 'Edit', edit_dspace_item_path(@dspace_item.id) %> |
 <%= link_to 'Back', dspace_items_path %>
 
-<p><h3>Parent Collection:</h3>
-<%= link_to @dspace_item.parent_collection.name,
-            dspace_collection_path(@dspace_item.parent_collection.id) %>
+<p>
+  <%= image_tag get_thumbnail(@dspace_item), class: 'item-thumbnail' %>
 </p>
 
-<p><%= image_tag(get_thumbnail(@dspace_item)) %></p>
+<p><h3>Parent Collection:</h3>
+<%= link_to @dspace_item.parent_collection.name,
+            dspace_collection_path(@dspace_item.parent_collection.id),
+            class: 'btn btn-default' %>
+</p>
 
 <p><h3>Author:</h3> <%= get_value_of(@dspace_item.metadata, "dc.contributor.author") %></p>
 
@@ -27,6 +30,10 @@
 
 <ul>
 <% @dspace_item.bit_streams.each do |bitstream| %>
-  <li><%= link_to bitstream.name, dspace_bitstream_path(bitstream.id) %></li>
+  <li>
+    <%= link_to bitstream.name,
+                dspace_bitstream_path(bitstream.id),
+                class: 'btn btn-default' %>
+  </li>
 <% end %>
 </ul>
