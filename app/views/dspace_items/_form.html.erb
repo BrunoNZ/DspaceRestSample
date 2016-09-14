@@ -5,8 +5,14 @@
     <%= f.input :parent_collection, collection: @parent_options,
         selected: @parent_selected, disabled: false %>
     <%= f.simple_fields_for :metadata do |m| %>
-      <%= m.input 'dc.title' %>
-      <%= m.input 'dc.contributor.author' %>
+      <% unless @dspace_item.nil? %>
+        <% @dspace_item.metadata.each do |metadata| %>
+          <%= m.input metadata.key, input_html: { value: metadata.value } %>
+        <% end %>
+      <% else %>
+        <%= m.input 'dc.title' %>
+        <%= m.input 'dc.contributor.author' %>
+      <% end %>
     <% end %>
   </div>
 
@@ -14,3 +20,5 @@
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<%= console %>
