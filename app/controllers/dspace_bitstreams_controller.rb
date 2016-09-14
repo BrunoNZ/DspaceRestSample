@@ -27,7 +27,7 @@ class DspaceBitstreamsController < ApplicationController
   def create
     respond_to do |format|
       if @dspace_bitstream = DspaceBitstream.save(dspace_bitstream_params)
-        format.html { redirect_to dspace_bitstreams_path(@dspace_bitstream.id),
+        format.html { redirect_to dspace_bitstream_path(@dspace_bitstream.id),
           notice: 'Dspace bitstream was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_bitstream }
       else
