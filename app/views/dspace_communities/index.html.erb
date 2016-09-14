@@ -1,8 +1,10 @@
 <h1>Dspace Communities</h1>
 
+<%= link_to 'New Dspace Community', new_dspace_community_path, class: 'btn btn-success' %>
+</br></br>
 <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>
 
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th colspan="3"></th>
@@ -41,6 +43,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Dspace Community', new_dspace_community_path, class: 'btn btn-success' %>
+<%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>
