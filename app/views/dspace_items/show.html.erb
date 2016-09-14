@@ -26,7 +26,7 @@
       class: 'btn btn-success' %>
 
 <ul>
-<% @dspace_bitstreams.each do |dspace_bitstream| %>
-  <li><%= link_to dspace_bitstream.name, dspace_bitstream_path(dspace_bitstream.id) %></li>
+<% @dspace_item.bit_streams.each do |bitstream| %>
+  <li><%= link_to bitstream.name, dspace_bitstream_path(bitstream.id) %></li>
 <% end %>
 </ul>

@@ -12,7 +12,6 @@ class DspaceItemsController < ApplicationController
   # GET /dspace_items/1
   # GET /dspace_items/1.json
   def show
-    @dspace_bitstreams = @dspace_item.bit_streams || []
   end
 
   # GET /dspace_items/new
