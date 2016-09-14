@@ -15,7 +15,7 @@ class DspaceBitstream < Dspace::Bitstream
     DspaceService.client.items.add_bitstream(
       args['bitstream'],
       id: args['parent_object'],
-      name: args['name'],
+      name: args['name'].empty? ? args['bitstream'].original_filename : args['name'],
       description: args['description'],
       bundle_name: args['bundle_name']
     )
