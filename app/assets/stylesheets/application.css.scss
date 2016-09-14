@@ -27,3 +27,16 @@
   padding-right: 25px;
   padding-left: 25px;
 }
+
+.index-table {
+  table-layout:fixed;
+}
+
+.action-btns-field {
+  text-align: right;
+}
+
+a.object-name-btn {
+  max-width: 100%;
+  overflow: hidden;
+}

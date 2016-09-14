@@ -4,10 +4,11 @@
 </br></br>
 <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_bitstreams} %>
 
-<table class="table table-hover">
+<table width="100%" class="table table-hover index-table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th></th>
+      <th width="10%"></th>
     </tr>
   </thead>
 
@@ -18,18 +19,15 @@
           <%= link_to dspace_bitstream.name,
                   dspace_bitstream_path(dspace_bitstream.id),
                   title: dspace_bitstream.name,
-                  class: 'btn btn-default' %>
+                  class: 'btn btn-default object-name-btn' %>
         </td>
 
-        <td>
+        <td class="action-btns-field">
           <%= link_to edit_dspace_bitstream_path(dspace_bitstream.id),
                   title: 'Edit',
                   class: 'btn btn-primary' do %>
                   <span class="glyphicon glyphicon-edit"></span>
           <% end %>
-        </td>
-
-        <td>
           <%= link_to dspace_bitstream_path(dspace_bitstream.id),
                   title: 'Destroy',
                   method: :delete,
