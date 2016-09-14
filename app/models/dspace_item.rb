@@ -22,7 +22,7 @@ class DspaceItem < Dspace::Item
 
   def self.update(args, id)
     DspaceService.client.items.update_metadata(
-      'metadata' => generate_metadata_hash(args['metadata']),
+      generate_metadata_hash(args['metadata']),
       id: id
     )
   end

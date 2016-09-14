@@ -42,8 +42,8 @@ class DspaceItemsController < ApplicationController
   # PATCH/PUT /dspace_items/1.json
   def update
     respond_to do |format|
-      if DspaceItem.update(dspace_item_params, params[:id])
-        format.html { redirect_to dspace_items_path(@dspace_item.id),
+      if DspaceItem.update(dspace_item_params, @dspace_item.id)
+        format.html { redirect_to dspace_item_path(@dspace_item.id),
           notice: 'Dspace item was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_item }
       else

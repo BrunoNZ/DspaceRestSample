@@ -1,6 +1,6 @@
 GIT
   remote: https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git
-  revision: 1099f030777e57bc90a67f231c3ff3259e825fa6
+  revision: b5f9196ca9ef1f12d4aa41daba5cb32753a28925
   branch: implement-dspace6-auth
   specs:
     dspace_rest_client (2.2.7)
@@ -210,4 +210,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
