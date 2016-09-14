@@ -12,7 +12,16 @@ class DspaceCommunity < Dspace::Community
   end
 
   def self.save(args)
-    DspaceService.client.communities.create(Dspace::Community.new(args))
+    if args['parent_community'].empty?
+      DspaceService.client.communities.create(
+        Dspace::Community.new(args)
+      )
+    else
+      DspaceService.client.communities.create_subcommunity(
+        Dspace::Community.new(args),
+        id: args['parent_community']
+      )
+    end
   end
 
   def self.update(args, id)

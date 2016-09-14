@@ -1,6 +1,7 @@
 class DspaceCommunitiesController < ApplicationController
   before_action :set_dspace_community, only: [:show, :edit, :update, :destroy]
   before_action :set_page_options, only: [:index]
+  before_action :set_parent_options, only: [:new, :edit]
 
   # GET /dspace_communities
   # GET /dspace_communities.json
@@ -11,7 +12,6 @@ class DspaceCommunitiesController < ApplicationController
   # GET /dspace_communities/1
   # GET /dspace_communities/1.json
   def show
-    @dspace_collections = @dspace_community.collections
   end
 
   # GET /dspace_communities/new
@@ -75,9 +75,20 @@ class DspaceCommunitiesController < ApplicationController
       @offset = @page * @limit
     end
 
+    def set_parent_options
+      if params['parent'].nil?
+        @parent_options = DspaceCommunity.all
+        @parent_selected = @dspace_collection.nil? ? "" : @dspace_collection.parent_community
+      else
+        @parent_options = [DspaceCommunity.find(params['parent'])]
+        @parent_selected = params['parent']
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_community_params
       params.require(:dspace_community).permit(
+        :parent_community,
         :name, :short_description,
         :copyright_text, :introductory_text, :sidebar_text,
         :logo
