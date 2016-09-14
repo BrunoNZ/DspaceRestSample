@@ -5,7 +5,8 @@
 <p><h3>Parent Community:</h3>
 <% unless @dspace_community.parent_community.nil? %>
   <%= link_to @dspace_community.parent_community.name,
-  dspace_community_path(@dspace_community.parent_community.id) %>
+        dspace_community_path(@dspace_community.parent_community.id),
+        class: 'btn btn-default' %>
 <% end %>
 </p>
 

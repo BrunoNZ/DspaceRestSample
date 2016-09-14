@@ -4,7 +4,8 @@
 
 <p><h3>Parent Object:</h3>
 <%= link_to @dspace_bitstream.parent_object['name'],
-            dspace_item_path(@dspace_bitstream.parent_object['uuid']) %>
+      dspace_item_path(@dspace_bitstream.parent_object['uuid']),
+      class: 'btn btn-default' %>
 </p>
 
 <p><h3>Name:</h3> <%= @dspace_bitstream.name %></p>
