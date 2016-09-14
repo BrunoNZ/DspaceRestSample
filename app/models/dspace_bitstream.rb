@@ -7,8 +7,8 @@ class DspaceBitstream < Dspace::Bitstream
     DspaceService.client.bitstreams.all(limit: limit, offset: offset)
   end
 
-  def self.find(id)
-    DspaceService.client.bitstreams.find(id: id)
+  def self.find(id, expand="")
+    DspaceService.client.bitstreams.find(id: id, expand: expand)
   end
 
   def self.save(args)

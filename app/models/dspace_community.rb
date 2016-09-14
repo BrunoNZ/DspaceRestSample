@@ -7,8 +7,8 @@ class DspaceCommunity < Dspace::Community
     DspaceService.client.communities.all(limit: limit, offset: offset)
   end
 
-  def self.find(id)
-    DspaceService.client.communities.find(id: id, expand: 'collections')
+  def self.find(id, expand="")
+    DspaceService.client.communities.find(id: id, expand: expand)
   end
 
   def self.save(args)

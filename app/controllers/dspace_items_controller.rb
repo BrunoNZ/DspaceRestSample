@@ -66,7 +66,7 @@ class DspaceItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_item
-      @dspace_item = DspaceItem.find(params[:id])
+      @dspace_item = DspaceItem.find(params[:id], 'parentCollection,metadata,bitstreams')
     end
 
     def set_page_options

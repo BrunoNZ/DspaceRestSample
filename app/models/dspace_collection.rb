@@ -7,8 +7,8 @@ class DspaceCollection < Dspace::Collection
     DspaceService.client.collections.all(limit: limit, offset: offset)
   end
 
-  def self.find(id)
-    DspaceService.client.collections.find(id: id, expand: 'items')
+  def self.find(id, expand="")
+    DspaceService.client.collections.find(id: id, expand: expand)
   end
 
   def self.save(args)

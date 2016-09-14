@@ -65,7 +65,7 @@ class DspaceBitstreamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_bitstream
-      @dspace_bitstream = DspaceBitstream.find(params[:id])
+      @dspace_bitstream = DspaceBitstream.find(params[:id],'parent')
     end
 
     def set_page_options

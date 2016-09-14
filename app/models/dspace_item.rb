@@ -7,8 +7,8 @@ class DspaceItem < Dspace::Item
     DspaceService.client.items.all(limit: limit, offset: offset)
   end
 
-  def self.find(id)
-    DspaceService.client.items.find(id: id, expand: 'metadata,bitstreams')
+  def self.find(id, expand="")
+    DspaceService.client.items.find(id: id, expand: expand)
   end
 
   def self.save(args)

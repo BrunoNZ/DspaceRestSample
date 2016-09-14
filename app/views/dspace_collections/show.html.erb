@@ -2,10 +2,10 @@
 <%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
 <%= link_to 'Back', dspace_collections_path %>
 
-</br></br>
-<%= link_to 'Create Item',
-      new_dspace_item_path(parent: @dspace_collection.id),
-      class: 'btn btn-success' %>
+<p><h3>Parent Community:</h3>
+<%= link_to @dspace_collection.parent_community.name,
+            dspace_community_path(@dspace_collection.parent_community.id) %>
+</p>
 
 <p><h3>Short Description:</h3> <%= @dspace_collection.short_description %></p>
 <p><h3>License:</h3> <%= @dspace_collection.license %></p>
@@ -15,6 +15,9 @@
 
 <p>
 <h3>Items in this collection:</h3>
+<%= link_to 'Create Item',
+      new_dspace_item_path(parent: @dspace_collection.id),
+      class: 'btn btn-success' %>
 <ul>
 <% @dspace_items.each do |dspace_item| %>
   <li><%= link_to dspace_item.name, dspace_item_path(dspace_item.id) %></li>

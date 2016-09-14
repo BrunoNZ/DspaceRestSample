@@ -2,11 +2,10 @@
 <%= link_to 'Edit', edit_dspace_item_path(@dspace_item.id) %> |
 <%= link_to 'Back', dspace_items_path %>
 
-</br></br>
-<%= link_to 'Create Bitstream',
-      new_dspace_bitstream_path(parent: @dspace_item.id),
-      class: 'btn btn-success' %>
-
+<p><h3>Parent Collection:</h3>
+<%= link_to @dspace_item.parent_collection.name,
+            dspace_collection_path(@dspace_item.parent_collection.id) %>
+</p>
 
 <p><%= image_tag(get_thumbnail(@dspace_item)) %></p>
 
@@ -22,6 +21,10 @@
 </p>
 
 <h2>Bitstreams in this item</h2>
+<%= link_to 'Create Bitstream',
+      new_dspace_bitstream_path(parent: @dspace_item.id),
+      class: 'btn btn-success' %>
+
 <ul>
 <% @dspace_bitstreams.each do |dspace_bitstream| %>
   <li><%= link_to dspace_bitstream.name, dspace_bitstream_path(dspace_bitstream.id) %></li>
