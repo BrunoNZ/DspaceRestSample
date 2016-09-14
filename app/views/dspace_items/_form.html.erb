@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :parent_collection, collection: DspaceCollection.all,
-        selected: @parent, disabled: @disabled_selection %>
+        selected: @parent, disabled: false %>
     <%= f.simple_fields_for :metadata do |m| %>
       <%= m.input 'dc.title' %>
       <%= m.input 'dc.contributor.author' %>

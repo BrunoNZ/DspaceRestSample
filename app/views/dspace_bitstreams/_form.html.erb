@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :parent_object, collection: DspaceItem.all,
-        selected: @parent, disabled: @disabled_selection %>
+        selected: @parent, disabled: false %>
     <%= f.input :name, label: 'Name:' %>
     <%= f.input :description, label: 'Description:' %>
     <%= f.input :bundle_name, label: 'Bundle Name:' %>
