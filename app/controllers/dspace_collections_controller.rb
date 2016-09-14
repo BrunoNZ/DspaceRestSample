@@ -1,6 +1,7 @@
 class DspaceCollectionsController < ApplicationController
   before_action :set_dspace_collection, only: [:show, :edit, :update, :destroy]
   before_action :set_page_options, only: [:index]
+  before_action :set_parent_options, only: [:new, :edit]
 
   # GET /dspace_collections
   # GET /dspace_collections.json
@@ -16,8 +17,6 @@ class DspaceCollectionsController < ApplicationController
 
   # GET /dspace_collections/new
   def new
-    @parent = params['parent']
-    @disabled_selection = @parent.nil? ? false : true
   end
 
   # GET /dspace_collections/1/edit
@@ -75,6 +74,16 @@ class DspaceCollectionsController < ApplicationController
       @page < 0 ? @page = 0 : @page
       @limit = 15
       @offset = @page * @limit
+    end
+
+    def set_parent_options
+      if params['parent'].nil?
+        @parent_options = DspaceCommunity.all
+        @parent_selected = @dspace_collection.nil? ? "" : @dspace_collection.parent_community
+      else
+        @parent_options = [DspaceCommunity.find(params['parent'])]
+        @parent_selected = params['parent']
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

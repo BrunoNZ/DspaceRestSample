@@ -1,6 +1,7 @@
 class DspaceBitstreamsController < ApplicationController
   before_action :set_dspace_bitstream, only: [:show, :edit, :update, :destroy]
   before_action :set_page_options, only: [:index]
+  before_action :set_parent_options, only: [:new, :edit]
 
   # GET /dspace_bitstreams
   # GET /dspace_bitstreams.json
@@ -15,8 +16,6 @@ class DspaceBitstreamsController < ApplicationController
 
   # GET /dspace_bitstreams/new
   def new
-    @parent = params['parent']
-    @disabled_selection = @parent.nil? ? false : true
   end
 
   # GET /dspace_bitstreams/1/edit
@@ -74,6 +73,16 @@ class DspaceBitstreamsController < ApplicationController
       @page < 0 ? @page = 0 : @page
       @limit = 15
       @offset = @page * @limit
+    end
+
+    def set_parent_options
+      if params['parent'].nil?
+        @parent_options = DspaceItem.all
+        @parent_selected = @dspace_bitstream.nil? ? "" : @dspace_bitstream.parent_object
+      else
+        @parent_options = [DspaceItem.find(params['parent'])]
+        @parent_selected = params['parent']
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

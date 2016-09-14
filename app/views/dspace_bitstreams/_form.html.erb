@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :parent_object, collection: DspaceItem.all,
+    <%= f.input :parent_object, collection: @parent_options,
         selected: @parent, disabled: false %>
     <%= f.input :name, label: 'Name:' %>
     <%= f.input :description, label: 'Description:' %>
