@@ -42,7 +42,7 @@ class DspaceCollectionsController < ApplicationController
   # PATCH/PUT /dspace_collections/1.json
   def update
     respond_to do |format|
-      if DspaceCollection.update(dspace_collection_params, params[:id])
+      if DspaceCollection.update(dspace_collection_params, @dspace_collection.id)
         format.html { redirect_to dspace_collection_path(@dspace_collection.id),
           notice: 'Dspace collection was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_collection }

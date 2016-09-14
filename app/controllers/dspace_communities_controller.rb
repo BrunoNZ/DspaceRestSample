@@ -41,7 +41,7 @@ class DspaceCommunitiesController < ApplicationController
   # PATCH/PUT /dspace_communities/1.json
   def update
     respond_to do |format|
-      if DspaceCommunity.update(dspace_community_params, params[:id])
+      if DspaceCommunity.update(dspace_community_params, @dspace_community.id)
         format.html { redirect_to dspace_community_path(@dspace_community.id),
           notice: 'Dspace community was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_community }
