@@ -1,0 +1,13 @@
+<%= simple_form_for :q, url: dspace_items_path, method: :get do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input_field :key, collection: @metadata_keys, selected: get_selected_metadata %>
+  <%= f.input_field :value, value: get_input_value %>
+  <%= f.button :submit, 'Search', class: "btn btn-primary" %>
+  <%= link_to dspace_items_path,
+          title: 'Clear',
+          class: 'btn btn-danger' do %>
+          Clear
+  <% end %>
+
+<% end %>

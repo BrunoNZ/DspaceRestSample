@@ -17,4 +17,12 @@ module DspaceItemsHelper
     return ""
   end
 
+  def get_selected_metadata
+    params[:q][:key] || 'dc.title'
+  end
+
+  def get_input_value
+    params[:q][:value] || ''
+  end
+
 end

@@ -2,6 +2,8 @@
 
 <%= link_to 'New Dspace Item', new_dspace_item_path, class: 'btn btn-success' %>
 </br></br>
+<%= render partial: 'search_form' %>
+</br></br>
 <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_items} %>
 
 <table width="100%" class="table table-hover index-table">

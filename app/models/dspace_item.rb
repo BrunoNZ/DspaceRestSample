@@ -11,6 +11,10 @@ class DspaceItem < Dspace::Item
     DspaceService.client.items.find(id: id, expand: expand)
   end
 
+  def self.find_by_metadata(args)
+    DspaceService.client.items.find_by_metadata(args)
+  end
+
   def self.save(args)
     DspaceService.client.collections.create_item(
       Dspace::Item.new(

@@ -6,7 +6,10 @@ class DspaceItemsController < ApplicationController
   # GET /dspace_items
   # GET /dspace_items.json
   def index
-    @dspace_items = DspaceItem.all(@limit, @offset)
+    @metadata_keys = permitted_metadata_keys
+    @dspace_items = dspace_item_search_params.nil? ?
+      DspaceItem.all(@limit, @offset) :
+      DspaceItem.find_by_metadata(dspace_item_search_params)
   end
 
   # GET /dspace_items/1
@@ -91,6 +94,12 @@ class DspaceItemsController < ApplicationController
         :parent_collection, :name,
         metadata: [permitted_metadata_keys]
       )
+    end
+
+    def dspace_item_search_params
+      unless params[:q].nil?
+        params.require(:q).permit(:key, :value)
+      end
     end
 
     def permitted_metadata_keys
