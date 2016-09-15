@@ -18,11 +18,11 @@ module DspaceItemsHelper
   end
 
   def get_selected_metadata
-    params[:q][:key] || 'dc.title'
+    params[:q].nil? ? 'dc.title' : params[:q][:key]
   end
 
   def get_input_value
-    params[:q][:value] || ''
+    params[:q].nil? ? '' : params[:q][:value]
   end
 
 end
