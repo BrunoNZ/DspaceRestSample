@@ -1,6 +1,20 @@
 <% if @_current_user.signed_in? %>
-  <li><%= link_to 'UserInfo', dspace_users_show_path %></li>
-  <li><%= link_to 'Logout', dspace_users_logout_action_path, :method=>'delete' %></li>
+  <li>
+    <%= link_to dspace_users_show_path do %>
+      <span class="glyphicon glyphicon-user" style="vertical-align:middle"></span>
+      <%= @_current_user.fullname %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to dspace_users_logout_action_path, :method=>'delete' do %>
+      <span class="glyphicon glyphicon-log-out" style="vertical-align:middle"></span>
+      Logout
+    <% end %>
+  </li>
 <% else %>
-  <li><%= link_to 'Login', dspace_users_login_path %></li>
+  <li>
+    <%= link_to dspace_users_login_path do %>
+      <span class="glyphicon glyphicon-log-in" style="vertical-align:middle"></span>
+      Login
+    <% end %>
 <% end %>
