@@ -8,11 +8,26 @@
       class: 'btn btn-default' %>
 </p>
 
-<p><h3>Short Description:</h3> <%= @dspace_collection.short_description %></p>
-<p><h3>License:</h3> <%= @dspace_collection.license %></p>
-<p><h3>Introductory text (HTML):</h3> <%= @dspace_collection.introductory_text %></p>
-<p><h3>Copyright text (HTML):</h3> <%= @dspace_collection.copyright_text %></p>
-<p><h3>News (HTML):</h3> <%= @dspace_collection.sidebar_text %></p>
+<p>
+  <h3>Short Description:</h3>
+  <%= @dspace_collection.short_description %>
+</p>
+<p>
+  <h3>License:</h3>
+  <%= @dspace_collection.license %>
+</p>
+<p>
+  <h3>Introductory text (HTML):</h3>
+  <%= @dspace_collection.introductory_text.html_safe %>
+</p>
+<p>
+  <h3>Copyright text (HTML):</h3>
+  <%= @dspace_collection.copyright_text.html_safe %>
+</p>
+<p>
+  <h3>News (HTML):</h3>
+  <%= @dspace_collection.sidebar_text.html_safe %>
+</p>
 
 <p>
 <h3>Items in this collection:</h3>

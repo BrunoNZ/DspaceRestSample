@@ -18,12 +18,12 @@
 <h3>Metadata:</h3>
 <ul>
 <% @dspace_item.metadata.each do |m| %>
-  <li><%= "#{m.key}: #{m.value}" %></li>
+  <li><b><%= m.key %>:</b> <%= m.value %></li>
 <% end %>
 </ul>
 </p>
 
-<h2>Bitstreams in this item</h2>
+<h3>Bitstreams in this item:</h3>
 <%= link_to 'Create Bitstream',
       new_dspace_bitstream_path(parent: @dspace_item.id),
       class: 'btn btn-success' %>

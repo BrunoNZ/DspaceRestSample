@@ -11,9 +11,18 @@
 </p>
 
 <p><h3>Short Description:</h3> <%= @dspace_community.short_description %></p>
-<p><h3>Introductory text (HTML):</h3> <%= @dspace_community.introductory_text %></p>
-<p><h3>Copyright text (HTML):</h3> <%= @dspace_community.copyright_text %></p>
-<p><h3>News (HTML):</h3> <%= @dspace_community.sidebar_text %></p>
+<p>
+  <h3>Introductory text (HTML):</h3>
+  <%= @dspace_community.introductory_text.html_safe %>
+</p>
+<p>
+  <h3>Copyright text (HTML):</h3>
+  <%= @dspace_community.copyright_text.html_safe %>
+</p>
+<p>
+  <h3>News (HTML):</h3>
+  <%= @dspace_community.sidebar_text.html_safe %>
+</p>
 
 <p>
 <h3>Collections in this community:</h3>
