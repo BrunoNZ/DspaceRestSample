@@ -8,7 +8,7 @@ class DspaceBitstream < Dspace::Bitstream
   end
 
   def self.find(id, expand="")
-    DspaceService.client.bitstreams.find(id: id, expand: expand)
+    DspaceService.client.bitstreams.find(id: id, expand: expand.delete(' '))
   end
 
   def self.save(args)

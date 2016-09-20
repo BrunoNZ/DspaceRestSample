@@ -8,7 +8,7 @@ class DspaceCommunity < Dspace::Community
   end
 
   def self.find(id, expand="")
-    DspaceService.client.communities.find(id: id, expand: expand)
+    DspaceService.client.communities.find(id: id, expand: expand.delete(' '))
   end
 
   def self.save(args)
