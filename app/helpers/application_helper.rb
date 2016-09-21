@@ -10,7 +10,7 @@ module ApplicationHelper
     return 'no_thumbnail.svg'
   end
 
-  def previsous_page_status page
+  def previsous_page_status(page)
     page == 0 ? 'disabled' : 'enabled'
   end
 
@@ -18,7 +18,7 @@ module ApplicationHelper
     (objects.empty? || objects.size < limit) ? 'disabled' : 'enabled'
   end
 
-  def min_numbered_page page
+  def min_numbered_page(page)
     page-2 < 0 ? 0 : page-2
   end
 

@@ -6,9 +6,9 @@
 
     <!-- PREVIOUS PAGE -->
     <li class="<%= previsous_page_status(@page) %>">
-      <%= link_to '', page: "#{@page - 1}", 'arial-label' => "Previous" do %>
+      <a href="?page=<%= @page - 1 %>" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
-      <% end %>
+      </a>
     </li>
 
     <!-- PREVIOUS PAGES (NUMBERED)-->
@@ -26,9 +26,10 @@
 
     <!-- NEXT PAGE -->
     <li class="<%= next_page_status(objects,@limit) %>">
-      <%= link_to '', page: "#{@page + 1}", 'arial-label' => "Next" do %>
+      <a href="?page=<%= @page + 1 %>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
-      <% end %>
+      </a>
     </li>
+
   </ul>
 </nav>
