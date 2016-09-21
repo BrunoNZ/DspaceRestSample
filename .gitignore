@@ -20,6 +20,5 @@
 /db/test.sqlite3
 /public/assets
 /config/secrets.yml
-/config/database.yml
 public/images/
 # ignore server scripts
