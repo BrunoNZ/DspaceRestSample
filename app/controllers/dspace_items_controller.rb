@@ -71,13 +71,6 @@ class DspaceItemsController < ApplicationController
       @dspace_item = DspaceItem.find(params[:id], 'parentCollection,metadata,bitstreams')
     end
 
-    def set_page_options
-      @page = params['page'].to_i || 0
-      @page < 0 ? @page = 0 : @page
-      @limit = 15
-      @offset = @page * @limit
-    end
-
     def set_parent_options
       if params['parent'].nil?
         @parent_options = DspaceCollection.all
