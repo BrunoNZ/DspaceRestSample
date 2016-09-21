@@ -20,12 +20,12 @@
     <li class="active"><%= link_to "#{@page}", page: "#{@page}" %></li>
 
     <!-- NEXT PAGES (NUMBERED)-->
-    <% for page in (@page+1)..(max_numbered_page(@page, objects, @limit)) do %>
+    <% for page in (@page+1)..(max_numbered_page(@page, objects)) do %>
       <li><%= link_to page, page: page %></li>
     <% end %>
 
     <!-- NEXT PAGE -->
-    <li class="<%= next_page_status(objects,@limit) %>">
+    <li class="<%= next_page_status(objects) %>">
       <a href="?page=<%= @page + 1 %>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>

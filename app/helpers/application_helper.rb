@@ -14,15 +14,15 @@ module ApplicationHelper
     page == 0 ? 'disabled' : 'enabled'
   end
 
-  def next_page_status(objects,limit=25)
-    (objects.empty? || objects.size < limit) ? 'disabled' : 'enabled'
+  def next_page_status(objects)
+    objects.empty? ? 'disabled' : 'enabled'
   end
 
   def min_numbered_page(page)
     page-2 < 0 ? 0 : page-2
   end
 
-  def max_numbered_page(page,objects,limit=25)
-    (objects.empty? || objects.size < limit) ? page : page+2
+  def max_numbered_page(page,objects)
+    objects.empty? ? page : page+2
   end
 end
