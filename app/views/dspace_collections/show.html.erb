@@ -4,41 +4,55 @@
   <%= link_to 'Back', dspace_collections_path %>
 </div>
 
-<p><h3>Parent Community:</h3>
-<%= link_to @dspace_collection.parent_community.name,
-      dspace_community_path(@dspace_collection.parent_community.id),
-      class: 'btn btn-default' %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <div class="thumbnail" >
+      <%= image_tag get_image_path(@dspace_collection.logo) %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <h3>Short Description:</h3>
-  <%= @dspace_collection.short_description %>
-</p>
-<p>
-  <h3>License:</h3>
-  <%= @dspace_collection.license %>
-</p>
-<p>
-  <h3>Introductory text (HTML):</h3>
-  <%= @dspace_collection.introductory_text.html_safe %>
-</p>
-<p>
-  <h3>Copyright text (HTML):</h3>
-  <%= @dspace_collection.copyright_text.html_safe %>
-</p>
-<p>
-  <h3>News (HTML):</h3>
-  <%= @dspace_collection.sidebar_text.html_safe %>
-</p>
+<div class="row">
+  <div class="col-md-12">
 
-<p>
-<h3>Items in this collection:</h3>
-<%= link_to 'Create Item',
-      new_dspace_item_path(parent: @dspace_collection.id),
-      class: 'btn btn-success' %>
-<ul>
-<% @dspace_items.each do |dspace_item| %>
-  <li><%= link_to dspace_item.name, dspace_item_path(dspace_item.id) %></li>
-<% end %>
-</ul>
-</p>
+    <p><h3>Parent Community:</h3>
+    <%= link_to @dspace_collection.parent_community.name,
+          dspace_community_path(@dspace_collection.parent_community.id),
+          class: 'btn btn-default' %>
+    </p>
+
+    <p>
+      <h3>Short Description:</h3>
+      <%= @dspace_collection.short_description %>
+    </p>
+    <p>
+      <h3>License:</h3>
+      <%= @dspace_collection.license %>
+    </p>
+    <p>
+      <h3>Introductory text (HTML):</h3>
+      <%= @dspace_collection.introductory_text.html_safe %>
+    </p>
+    <p>
+      <h3>Copyright text (HTML):</h3>
+      <%= @dspace_collection.copyright_text.html_safe %>
+    </p>
+    <p>
+      <h3>News (HTML):</h3>
+      <%= @dspace_collection.sidebar_text.html_safe %>
+    </p>
+
+    <p>
+    <h3>Items in this collection:</h3>
+    <%= link_to 'Create Item',
+          new_dspace_item_path(parent: @dspace_collection.id),
+          class: 'btn btn-success' %>
+    <ul>
+    <% @dspace_items.each do |dspace_item| %>
+      <li><%= link_to dspace_item.name, dspace_item_path(dspace_item.id) %></li>
+    <% end %>
+    </ul>
+    </p>
+
+  </div>
+</div>

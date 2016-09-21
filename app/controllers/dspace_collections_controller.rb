@@ -66,7 +66,7 @@ class DspaceCollectionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_collection
-      @dspace_collection = DspaceCollection.find(params[:id],'parentCommunity,items')
+      @dspace_collection = DspaceCollection.find(params[:id],'parentCommunity, items, logo')
     end
 
     def set_page_options

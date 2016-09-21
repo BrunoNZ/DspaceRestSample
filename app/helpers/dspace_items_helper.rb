@@ -10,11 +10,6 @@ module DspaceItemsHelper
 
   def get_thumbnail(item)
     bitstream = item.bit_streams.select{|b| b.bundle_name.eql?'THUMBNAIL' }.first
-    unless bitstream.nil?
-      file = DspaceService.client.bitstreams.retrieve(id: bitstream.id, bitstreams_path: 'public/images')
-      return File.basename(file.path)
-    end
-    return 'no_thumbnail.svg'
   end
 
   def get_selected_metadata

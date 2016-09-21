@@ -65,7 +65,7 @@ class DspaceCommunitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_community
-      @dspace_community = DspaceCommunity.find(params[:id], 'parentCommunity, subCommunities, collections')
+      @dspace_community = DspaceCommunity.find(params[:id], 'parentCommunity, subCommunities, collections, logo')
     end
 
     def set_page_options

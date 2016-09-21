@@ -1,5 +1,15 @@
 module ApplicationHelper
 
+  def get_image_path(bitstream)
+    unless bitstream.nil?
+      file = DspaceService.client.bitstreams.retrieve(
+              id: bitstream.id,
+              bitstreams_path: 'public/images')
+      return File.basename(file.path)
+    end
+    return 'no_thumbnail.svg'
+  end
+
   def previsous_page_status page
     page == 0 ? 'disabled' : 'enabled'
   end
