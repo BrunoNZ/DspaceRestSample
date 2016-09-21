@@ -1,6 +1,8 @@
-<h1><%= @dspace_bitstream.name %></h1>
-<%= link_to 'Edit', edit_dspace_bitstream_path(@dspace_bitstream.id) %> |
-<%= link_to 'Back', dspace_bitstreams_path %>
+<div class="page-header">
+  <h1><%= @dspace_bitstream.name %></h1>
+  <%= link_to 'Edit', edit_dspace_bitstream_path(@dspace_bitstream.id) %> |
+  <%= link_to 'Back', dspace_bitstreams_path %>
+</div>
 
 <p><h3>Parent Object:</h3>
 <%= link_to @dspace_bitstream.parent_object['name'],

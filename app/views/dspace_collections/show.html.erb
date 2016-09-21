@@ -1,6 +1,8 @@
-<h1><%= @dspace_collection.name %></h1>
-<%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
-<%= link_to 'Back', dspace_collections_path %>
+<div class="page-header">
+  <h1><%= @dspace_collection.name %></h1>
+  <%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
+  <%= link_to 'Back', dspace_collections_path %>
+</div>
 
 <p><h3>Parent Community:</h3>
 <%= link_to @dspace_collection.parent_community.name,
