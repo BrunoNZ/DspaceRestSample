@@ -1,25 +1,40 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Dspace Schemas</h1>
 
-<table>
+<%= link_to 'New Dspace Schema', new_dspace_schema_path, class: 'btn btn-success' %>
+
+<table width="100%" class="table table-hover index-table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th width="5%"></th>
+      <th></th>
+      <th></th>
+      <th width="10%"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @dspace_schemas.each do |dspace_schema| %>
       <tr>
-        <td><%= link_to 'Show', dspace_schema %></td>
-        <td><%= link_to 'Edit', edit_dspace_schema_path(dspace_schema) %></td>
-        <td><%= link_to 'Destroy', dspace_schema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= dspace_schema.id %><td>
+        <td>
+          <%= link_to dspace_schema.prefix,
+                  dspace_schema_path(dspace_schema.prefix),
+                  title: dspace_schema.prefix,
+                  class: 'btn btn-default object-name-btn' %>
+        </td>
+        <td><%= dspace_schema.namespace %><td>
+
+
+        <td class="action-btns-field">
+          <%= link_to dspace_schema_path(dspace_schema.id),
+                  title: 'Destroy',
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' },
+                  class: 'btn btn-danger' do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Dspace Schema', new_dspace_schema_path %>

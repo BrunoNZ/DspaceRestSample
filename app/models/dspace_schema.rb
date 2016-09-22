@@ -15,9 +15,14 @@ class DspaceSchema < Dspace::Schema
   end
 
   def self.save(args)
-    DspaceService.client.schema_registry.create_schema(
-      Dspace::Schema.new(args)
-    )
+    begin
+      schema = DspaceService.client.schema_registry.create_schema(
+        Dspace::Schema.new(args)
+      )
+    rescue
+      return false
+    end
+    schema
   end
 
   def self.destroy(schema_id)

@@ -14,7 +14,6 @@ class DspaceSchemasController < ApplicationController
 
   # GET /dspace_schemas/new
   def new
-    @dspace_schema = DspaceSchema.new
   end
 
   # GET /dspace_schemas/1/edit
@@ -24,11 +23,10 @@ class DspaceSchemasController < ApplicationController
   # POST /dspace_schemas
   # POST /dspace_schemas.json
   def create
-    @dspace_schema = DspaceSchema.new(dspace_schema_params)
-
     respond_to do |format|
-      if @dspace_schema.save
-        format.html { redirect_to @dspace_schema, notice: 'Dspace schema was successfully created.' }
+      if @dspace_schema = DspaceSchema.save(dspace_schema_params)
+        format.html { redirect_to dspace_schema_path(@dspace_schema.prefix),
+          notice: 'Dspace schema was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_schema }
       else
         format.html { render :new }
@@ -41,8 +39,9 @@ class DspaceSchemasController < ApplicationController
   # PATCH/PUT /dspace_schemas/1.json
   def update
     respond_to do |format|
-      if @dspace_schema.update(dspace_schema_params)
-        format.html { redirect_to @dspace_schema, notice: 'Dspace schema was successfully updated.' }
+      if DspaceSchema.update(dspace_schema_params, @dspace_schema.id)
+        format.html { redirect_to dspace_schema_path(@dspace_schema.prefix),
+          notice: 'Dspace schema was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_schema }
       else
         format.html { render :edit }
@@ -54,7 +53,7 @@ class DspaceSchemasController < ApplicationController
   # DELETE /dspace_schemas/1
   # DELETE /dspace_schemas/1.json
   def destroy
-    @dspace_schema.destroy
+    DspaceSchema.destroy(@dspace_schema.id)
     respond_to do |format|
       format.html { redirect_to dspace_schemas_url, notice: 'Dspace schema was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,11 +63,13 @@ class DspaceSchemasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dspace_schema
-      @dspace_schema = DspaceSchema.find(params[:id])
+      @dspace_schema = DspaceSchema.find(params[:id],'fields')
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_schema_params
-      params.fetch(:dspace_schema, {})
+      params.require(:dspace_schema).permit(
+        :prefix, :namespace
+      )
     end
 end

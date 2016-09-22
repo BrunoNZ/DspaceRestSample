@@ -1,5 +1,5 @@
 <h1>New Dspace Schema</h1>
 
-<%= render 'form', dspace_schema: @dspace_schema %>
+<%= render partial: 'form', locals: {url: dspace_schemas_path, method: :post} %>
 
 <%= link_to 'Back', dspace_schemas_path %>

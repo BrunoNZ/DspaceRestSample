@@ -1,4 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1><%= @dspace_schema.prefix %></h1>
+  <%= link_to 'Back', dspace_schemas_path %>
+</div>
 
-<%= link_to 'Edit', edit_dspace_schema_path(@dspace_schema) %> |
-<%= link_to 'Back', dspace_schemas_path %>
+<p><h3>Namespace:</h3> <%= @dspace_schema.namespace %></p>
+
+<p>
+  <h3>Fields:</h3>
+  <table width="100%" class="table table-hover index-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Field</th>
+        <th>Scope Note</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @dspace_schema.fields.each do |field| %>
+        <tr>
+          <td><%= field.id %></td>
+          <td><%= field.name %></td>
+          <td><%= field.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

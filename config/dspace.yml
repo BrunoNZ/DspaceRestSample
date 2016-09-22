@@ -1,20 +1,14 @@
 development:
   host: demo.dspace.org
   port:
-  login: dspacedemo+admin@gmail.com
-  password: dspace
   bitstreams_path: 'public/images'
 
 test:
-  host: demo.dspace.org
-  port:
-  login: dspacedemo+admin@gmail.com
-  password: dspace
+  host: localhost
+  port: 8443
   bitstreams_path: 'public/images'
 
 production:
   host: demo.dspace.org
   port:
-  login: <%= ENV["DSPACE_LOGIN"] %>
-  password: <%= ENV["DSPACE_PASSWORD"] %>
   bitstreams_path: 'public/images'
