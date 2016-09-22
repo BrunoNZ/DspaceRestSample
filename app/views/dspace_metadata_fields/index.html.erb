@@ -1,25 +1,45 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Dspace Metadata Fields</h1>
 
-<table>
+<%= link_to 'New Dspace Metadata Field', new_dspace_metadata_field_path, class: 'btn btn-success' %>
+
+<table width="100%" class="table table-hover index-table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th width="5%"></th>
+      <th width="25%"></th>
+      <th></th>
+      <th width="10%"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @dspace_metadata_fields.each do |dspace_metadata_field| %>
       <tr>
-        <td><%= link_to 'Show', dspace_metadata_field %></td>
-        <td><%= link_to 'Edit', edit_dspace_metadata_field_path(dspace_metadata_field) %></td>
-        <td><%= link_to 'Destroy', dspace_metadata_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= dspace_metadata_field.id %></td>
+        <td>
+          <%= link_to dspace_metadata_field.name,
+                  dspace_metadata_field_path(dspace_metadata_field.id),
+                  title: dspace_metadata_field.name,
+                  class: 'btn btn-default object-name-btn' %>
+        </td>
+        <td><%= dspace_metadata_field.description %></td>
+
+
+        <td class="action-btns-field">
+          <%= link_to edit_dspace_metadata_field_path(dspace_metadata_field.id),
+                  title: 'Edit',
+                  class: 'btn btn-primary' do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to dspace_metadata_field_path(dspace_metadata_field.id),
+                  title: 'Destroy',
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' },
+                  class: 'btn btn-danger' do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Dspace Metadata Field', new_dspace_metadata_field_path %>

@@ -1,10 +1,11 @@
 class DspaceMetadataFieldsController < ApplicationController
   before_action :set_dspace_metadata_field, only: [:show, :edit, :update, :destroy]
+  before_action :set_parent_options, only: [:new, :edit]
 
   # GET /dspace_metadata_fields
   # GET /dspace_metadata_fields.json
   def index
-    @dspace_metadata_fields = DspaceMetadataField.all
+    @dspace_metadata_fields = DspaceMetadataField.all('dc','fields')
   end
 
   # GET /dspace_metadata_fields/1
@@ -14,7 +15,6 @@ class DspaceMetadataFieldsController < ApplicationController
 
   # GET /dspace_metadata_fields/new
   def new
-    @dspace_metadata_field = DspaceMetadataField.new
   end
 
   # GET /dspace_metadata_fields/1/edit
@@ -24,11 +24,10 @@ class DspaceMetadataFieldsController < ApplicationController
   # POST /dspace_metadata_fields
   # POST /dspace_metadata_fields.json
   def create
-    @dspace_metadata_field = DspaceMetadataField.new(dspace_metadata_field_params)
-
     respond_to do |format|
-      if @dspace_metadata_field.save
-        format.html { redirect_to @dspace_metadata_field, notice: 'Dspace metadata field was successfully created.' }
+      if @dspace_metadata_field = DspaceMetadataField.save(dspace_metadata_field_params)
+        format.html { redirect_to dspace_metadata_field_path(@dspace_metadata_field.id),
+          notice: 'Dspace metadata field was successfully created.' }
         format.json { render :show, status: :created, location: @dspace_metadata_field }
       else
         format.html { render :new }
@@ -41,8 +40,9 @@ class DspaceMetadataFieldsController < ApplicationController
   # PATCH/PUT /dspace_metadata_fields/1.json
   def update
     respond_to do |format|
-      if @dspace_metadata_field.update(dspace_metadata_field_params)
-        format.html { redirect_to @dspace_metadata_field, notice: 'Dspace metadata field was successfully updated.' }
+      if DspaceMetadataField.update(dspace_metadata_field_params, @dspace_metadata_field.id)
+        format.html { redirect_to dspace_metadata_field_path(@dspace_metadata_field.id),
+          notice: 'Dspace metadata field was successfully updated.' }
         format.json { render :show, status: :ok, location: @dspace_metadata_field }
       else
         format.html { render :edit }
@@ -54,9 +54,10 @@ class DspaceMetadataFieldsController < ApplicationController
   # DELETE /dspace_metadata_fields/1
   # DELETE /dspace_metadata_fields/1.json
   def destroy
-    @dspace_metadata_field.destroy
+    DspaceMetadataField.destroy(@dspace_metadata_field.id)
     respond_to do |format|
-      format.html { redirect_to dspace_metadata_fields_url, notice: 'Dspace metadata field was successfully destroyed.' }
+      format.html { redirect_to dspace_metadata_fields_url,
+        notice: 'Dspace metadata field was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +68,20 @@ class DspaceMetadataFieldsController < ApplicationController
       @dspace_metadata_field = DspaceMetadataField.find(params[:id])
     end
 
+    def set_parent_options
+      if params['parent'].nil?
+        @parent_options = DspaceSchema.all
+        @parent_selected = @dspace_metadata_field.nil? ? "" : @dspace_metadata_field.parent_schema
+      else
+        @parent_options = [DspaceSchema.find(params['parent'])]
+        @parent_selected = params['parent']
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_metadata_field_params
-      params.fetch(:dspace_metadata_field, {})
+      params.require(:dspace_metadata_field).permit(
+        :element, :qualifier, :description, :parent_schema
+      )
     end
 end

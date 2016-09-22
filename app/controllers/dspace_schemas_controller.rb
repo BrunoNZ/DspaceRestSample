@@ -55,7 +55,8 @@ class DspaceSchemasController < ApplicationController
   def destroy
     DspaceSchema.destroy(@dspace_schema.id)
     respond_to do |format|
-      format.html { redirect_to dspace_schemas_url, notice: 'Dspace schema was successfully destroyed.' }
+      format.html { redirect_to dspace_schemas_url,
+        notice: 'Dspace schema was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

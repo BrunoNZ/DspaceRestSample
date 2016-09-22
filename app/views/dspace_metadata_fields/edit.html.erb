@@ -1,6 +1,6 @@
 <h1>Editing Dspace Metadata Field</h1>
 
-<%= render 'form', dspace_metadata_field: @dspace_metadata_field %>
+<%= render partial: 'form', locals: {url: dspace_metadata_field_path, method: :put} %>
 
-<%= link_to 'Show', @dspace_metadata_field %> |
+<%= link_to 'Show', dspace_metadata_field_path(@dspace_metadata_field.id) %> |
 <%= link_to 'Back', dspace_metadata_fields_path %>

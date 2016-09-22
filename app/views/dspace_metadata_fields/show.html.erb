@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1><%= @dspace_metadata_field.name %></h1>
+  <%= link_to 'Back', dspace_schemas_path %>
+</div>
 
-<%= link_to 'Edit', edit_dspace_metadata_field_path(@dspace_metadata_field) %> |
-<%= link_to 'Back', dspace_metadata_fields_path %>
+<p><h3>Name:</h3> <%= @dspace_metadata_field.name %></p>
+<p><h3>Element:</h3> <%= @dspace_metadata_field.element %></p>
+<p><h3>Qualifier:</h3> <%= @dspace_metadata_field.qualifier %></p>
+<p><h3>Description:</h3> <%= @dspace_metadata_field.description %></p>

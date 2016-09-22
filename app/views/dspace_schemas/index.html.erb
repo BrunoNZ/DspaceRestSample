@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th width="5%"></th>
-      <th></th>
+      <th width="25%"></th>
       <th></th>
       <th width="10%"></th>
     </tr>
@@ -15,14 +15,14 @@
   <tbody>
     <% @dspace_schemas.each do |dspace_schema| %>
       <tr>
-        <td><%= dspace_schema.id %><td>
+        <td><%= dspace_schema.id %></td>
         <td>
           <%= link_to dspace_schema.prefix,
                   dspace_schema_path(dspace_schema.prefix),
                   title: dspace_schema.prefix,
                   class: 'btn btn-default object-name-btn' %>
         </td>
-        <td><%= dspace_schema.namespace %><td>
+        <td><%= dspace_schema.namespace %></td>
 
 
         <td class="action-btns-field">

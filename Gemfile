@@ -53,7 +53,7 @@ gem 'rails_12factor', group: :production
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'dspace_rest_client', '~> 2.2', '>= 2.2.9', \
+gem 'dspace_rest_client', '~> 2.2', '>= 2.2.10', \
   :git => "https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git", \
   :branch => "implement-dspace6-auth"
 # gem 'dspace_rest_client', '~> 2.2', '>= 2.2.6' , :path => "/home/bruno/Projetos/dspace-rest-client/bnzanette"

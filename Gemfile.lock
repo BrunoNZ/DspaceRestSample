@@ -1,9 +1,9 @@
 GIT
   remote: https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git
-  revision: 4868897b113ca8f4664fd86aaf14227f8e3949a8
+  revision: 0f72da286ec191adc7708bc3d88a0ac26678cc85
   branch: implement-dspace6-auth
   specs:
-    dspace_rest_client (2.2.9)
+    dspace_rest_client (2.2.10)
       activesupport (>= 4.2.0)
       faraday (~> 0.9.2)
       json (~> 1.8, >= 1.8.3)
@@ -190,7 +190,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
-  dspace_rest_client (~> 2.2, >= 2.2.9)!
+  dspace_rest_client (~> 2.2, >= 2.2.10)!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

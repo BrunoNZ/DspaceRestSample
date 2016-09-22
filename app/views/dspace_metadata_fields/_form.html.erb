@@ -1,10 +1,15 @@
-<%= simple_form_for(@dspace_metadata_field) do |f| %>
+<%= simple_form_for :dspace_metadata_field, url: url, method: method do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :parent_schema, collection: @parent_options,
+        selected: @parent_selected, disabled: false %>
+    <%= f.input :element, label: 'Element:' %>
+    <%= f.input :qualifier, label: 'Qualifier:' %>
+    <%= f.input :description, label: 'description:' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
