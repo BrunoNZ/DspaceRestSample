@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dspace Schemas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dspace_schemas.each do |dspace_schema| %>
+      <tr>
+        <td><%= link_to 'Show', dspace_schema %></td>
+        <td><%= link_to 'Edit', edit_dspace_schema_path(dspace_schema) %></td>
+        <td><%= link_to 'Destroy', dspace_schema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dspace Schema', new_dspace_schema_path %>

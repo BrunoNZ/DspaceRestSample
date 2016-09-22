@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dspace Metadata Fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dspace_metadata_fields.each do |dspace_metadata_field| %>
+      <tr>
+        <td><%= link_to 'Show', dspace_metadata_field %></td>
+        <td><%= link_to 'Edit', edit_dspace_metadata_field_path(dspace_metadata_field) %></td>
+        <td><%= link_to 'Destroy', dspace_metadata_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dspace Metadata Field', new_dspace_metadata_field_path %>

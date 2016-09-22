@@ -1,0 +1,1 @@
+json.partial! "dspace_metadata_fields/dspace_metadata_field", dspace_metadata_field: @dspace_metadata_field

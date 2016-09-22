@@ -1,0 +1,1 @@
+json.partial! "dspace_schemas/dspace_schema", dspace_schema: @dspace_schema

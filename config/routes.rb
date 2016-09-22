@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :dspace_schemas
+  resources :dspace_metadata_fields
   resources :dspace_communities
   resources :dspace_collections
   resources :dspace_items
