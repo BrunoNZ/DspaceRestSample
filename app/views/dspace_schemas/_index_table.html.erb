@@ -1,0 +1,36 @@
+<table width="100%" class="table table-hover index-table">
+  <thead>
+    <tr>
+      <th width="5%"></th>
+      <th width="25%"></th>
+      <th></th>
+      <th width="10%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% dspace_schemas.each do |dspace_schema| %>
+      <tr>
+        <td><%= dspace_schema.id %></td>
+        <td>
+          <%= link_to dspace_schema.prefix,
+                  dspace_schema_path(dspace_schema.prefix),
+                  title: dspace_schema.prefix,
+                  class: 'btn btn-default object-name-btn' %>
+        </td>
+        <td><%= dspace_schema.namespace %></td>
+
+
+        <td class="action-btns-field">
+          <%= link_to dspace_schema_path(dspace_schema.prefix),
+                  title: 'Destroy',
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' },
+                  class: 'btn btn-danger' do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

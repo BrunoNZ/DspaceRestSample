@@ -7,23 +7,6 @@
 
 <p>
   <h3>Fields:</h3>
-  <table width="100%" class="table table-hover index-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Field</th>
-        <th>Scope Note</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @dspace_schema.fields.each do |field| %>
-        <tr>
-          <td><%= field.id %></td>
-          <td><%= field.name %></td>
-          <td><%= field.description %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= render partial: 'dspace_metadata_fields/index_table',
+    locals: {dspace_metadata_fields: @dspace_schema.fields } %>
 </p>

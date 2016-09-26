@@ -4,41 +4,6 @@
 </br></br>
 <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>
 
-<table width="100%" class="table table-hover index-table">
-  <thead>
-    <tr>
-      <th></th>
-      <th width="10%"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @dspace_communities.each do |dspace_community| %>
-      <tr>
-        <td>
-          <%= link_to dspace_community.name,
-                  dspace_community_path(dspace_community.id),
-                  title: dspace_community.name,
-                  class: 'btn btn-default object-name-btn' %>
-        </td>
-
-        <td class="action-btns-field">
-          <%= link_to edit_dspace_community_path(dspace_community.id),
-                  title: 'Edit',
-                  class: 'btn btn-primary' do %>
-                  <span class="glyphicon glyphicon-edit"></span>
-          <% end %>
-          <%= link_to dspace_community_path(dspace_community.id),
-                  title: 'Destroy',
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' },
-                  class: 'btn btn-danger' do %>
-                  <span class="glyphicon glyphicon-remove"></span>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'index_table', locals: {dspace_communities: @dspace_communities} %>
 
 <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>

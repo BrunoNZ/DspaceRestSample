@@ -6,41 +6,6 @@
 </br></br>
 <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_items} %>
 
-<table width="100%" class="table table-hover index-table">
-  <thead>
-    <tr>
-      <th></th>
-      <th width="10%"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @dspace_items.each do |dspace_item| %>
-      <tr>
-        <td>
-          <%= link_to dspace_item.name,
-                  dspace_item_path(dspace_item.id),
-                  title: dspace_item.name,
-                  class: 'btn btn-default object-name-btn' %>
-        </td>
-
-        <td class="action-btns-field">
-          <%= link_to edit_dspace_item_path(dspace_item.id),
-                  title: 'Edit',
-                  class: 'btn btn-primary' do %>
-                  <span class="glyphicon glyphicon-edit"></span>
-          <% end %>
-          <%= link_to dspace_item_path(dspace_item.id),
-                  title: 'Destroy',
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' },
-                  class: 'btn btn-danger' do %>
-                  <span class="glyphicon glyphicon-remove"></span>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'index_table', locals: {dspace_items: @dspace_items} %>
 
 <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_items} %>
