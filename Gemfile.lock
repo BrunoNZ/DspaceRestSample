@@ -1,9 +1,9 @@
 GIT
   remote: https://gitlab.c3sl.ufpr.br/bnzanette/dspace-rest-client.git
-  revision: 0f72da286ec191adc7708bc3d88a0ac26678cc85
+  revision: ed1430a03834f32e33f02404c124a583184a2a56
   branch: implement-dspace6-auth
   specs:
-    dspace_rest_client (2.2.10)
+    dspace_rest_client (2.2.11)
       activesupport (>= 4.2.0)
       faraday (~> 0.9.2)
       json (~> 1.8, >= 1.8.3)
@@ -52,7 +52,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (7.1.2)
-    autoprefixer-rails (6.4.1.1)
+    autoprefixer-rails (6.5.0)
       execjs
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -96,7 +96,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
@@ -190,7 +190,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
-  dspace_rest_client (~> 2.2, >= 2.2.10)!
+  dspace_rest_client (~> 2.2, >= 2.2.11)!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
