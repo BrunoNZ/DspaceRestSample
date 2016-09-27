@@ -14,32 +14,36 @@
 
 <div class="row">
   <div class="col-md-12">
-    <p><h3>Parent Collection:</h3>
-    <%= link_to @dspace_item.parent_collection.name,
-                dspace_collection_path(@dspace_item.parent_collection.id),
-                class: 'btn btn-default' %>
+    <p>
+      <h3>Parent Collection:</h3>
+      <%= link_to @dspace_item.parent_collection.name,
+                  dspace_collection_path(@dspace_item.parent_collection.id),
+                  class: 'btn btn-default' %>
     </p>
-
-    <p><h3>Author:</h3> <%= get_value_of(@dspace_item.metadata, "dc.contributor.author") %></p>
 
     <p>
-    <h3>Metadata:</h3>
-    <ul>
-    <% @dspace_item.metadata.each do |m| %>
-      <li><b><%= m.key %>:</b> <%= m.value %></li>
-    <% end %>
-    </ul>
+      <h3>Author:</h3>
+      <%= get_value_of(@dspace_item.metadata, "dc.contributor.author") %>
     </p>
 
-    <h3>Bitstreams in this item:</h3>
-    <%= link_to 'Create Bitstream',
-          new_dspace_bitstream_path(parent: @dspace_item.id),
-          class: 'btn btn-success' %>
+    <p>
+      <h3>Metadata:</h3>
+      <ul>
+      <% @dspace_item.metadata.each do |m| %>
+        <li><b><%= m.key %>:</b> <%= m.value %></li>
+      <% end %>
+      </ul>
+    </p>
 
-    <ul>
-    <% @dspace_item.bit_streams.each do |bitstream| %>
-      <li><%= link_to bitstream.name, dspace_bitstream_path(bitstream.id) %></li>
-    <% end %>
-    </ul>
+    <p>
+      <h3>Bitstreams in this item:</h3>
+      <%= link_to 'Create Bitstream',
+            new_dspace_bitstream_path(parent: @dspace_item.id),
+            class: 'btn btn-success' %>
+
+      <%= render partial: 'dspace_bitstreams/index_table',
+            locals: {dspace_bitstreams: @dspace_item.bit_streams } %>
+    </p>
+
   </div>
 </div>

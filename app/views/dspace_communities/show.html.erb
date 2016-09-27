@@ -38,27 +38,23 @@
     </p>
 
     <p>
-    <h3>Collections in this community:</h3>
-    <%= link_to 'Create Collection',
-          new_dspace_collection_path(parent: @dspace_community.id),
-          class: 'btn btn-success' %>
-    <ul>
-    <% @dspace_community.collections.each do |collection| %>
-      <li><%= link_to collection.name, dspace_collection_path(collection.id) %></li>
-    <% end %>
-    </ul>
+      <h3>Collections in this community:</h3>
+      <%= link_to 'Create Collection',
+            new_dspace_collection_path(parent: @dspace_community.id),
+            class: 'btn btn-success' %>
+
+      <%= render partial: 'dspace_collections/index_table',
+            locals: {dspace_collections: @dspace_community.collections} %>
     </p>
 
     <p>
-    <h3>SubCommunities in this community:</h3>
-    <%= link_to 'Create SubCommunity',
-          new_dspace_community_path(parent: @dspace_community.id),
-          class: 'btn btn-success' %>
-    <ul>
-    <% @dspace_community.sub_communities.each do |community| %>
-      <li><%= link_to community.name, dspace_community_path(community.id) %></li>
-    <% end %>
-    </ul>
+      <h3>SubCommunities in this community:</h3>
+      <%= link_to 'Create SubCommunity',
+            new_dspace_community_path(parent: @dspace_community.id),
+            class: 'btn btn-success' %>
+
+      <%= render partial: 'dspace_communities/index_table',
+            locals: {dspace_communities: @dspace_community.sub_communities} %>
     </p>
 
   </div>

@@ -12,7 +12,6 @@ class DspaceCollectionsController < ApplicationController
   # GET /dspace_collections/1
   # GET /dspace_collections/1.json
   def show
-    @dspace_items = @dspace_collection.items
   end
 
   # GET /dspace_collections/new

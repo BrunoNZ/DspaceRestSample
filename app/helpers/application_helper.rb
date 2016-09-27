@@ -10,6 +10,15 @@ module ApplicationHelper
     return 'no_thumbnail.svg'
   end
 
+  def retrieve_link_of bitstream
+    unless bitstream.nil? || ! bitstream.is_a?(Dspace::Bitstream)
+      DspaceService.link + bitstream.retrieve_link
+    else
+      puts "#{bitstream.inspect}"
+      dspace_bitstreams_path
+    end
+  end
+
   def previsous_page_status(page)
     page == 0 ? 'disabled' : 'enabled'
   end

@@ -43,15 +43,13 @@
     </p>
 
     <p>
-    <h3>Items in this collection:</h3>
-    <%= link_to 'Create Item',
-          new_dspace_item_path(parent: @dspace_collection.id),
-          class: 'btn btn-success' %>
-    <ul>
-    <% @dspace_items.each do |dspace_item| %>
-      <li><%= link_to dspace_item.name, dspace_item_path(dspace_item.id) %></li>
-    <% end %>
-    </ul>
+      <h3>Items in this collection:</h3>
+      <%= link_to 'Create Item',
+            new_dspace_item_path(parent: @dspace_collection.id),
+            class: 'btn btn-success' %>
+
+      <%= render partial: 'dspace_items/index_table',
+            locals: {dspace_items: @dspace_collection.items} %>
     </p>
 
   </div>
