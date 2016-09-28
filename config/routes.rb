@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  resources :dspace_schemas
-  resources :dspace_metadata_fields
-  resources :dspace_communities
-  resources :dspace_collections
-  resources :dspace_items
-  resources :dspace_bitstreams
 
   namespace :dspace_users do
     get 'show'
@@ -12,6 +6,19 @@ Rails.application.routes.draw do
     post 'login_action'
     delete 'logout_action'
   end
+
+  namespace :pages do
+    get 'home'
+    get 'about'
+    get 'contact'
+  end
+
+  resources :dspace_schemas
+  resources :dspace_metadata_fields
+  resources :dspace_communities
+  resources :dspace_collections
+  resources :dspace_items
+  resources :dspace_bitstreams
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
