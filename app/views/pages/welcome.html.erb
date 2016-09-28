@@ -18,7 +18,8 @@
 </div>
 
 <div>
-  <h2><%= @site_hierarchy.name %> Hierarchy:</h2>
+  <h2><b><%= @site_hierarchy.name %></b> Hierarchy:</h2>
+  <br>
   <%= render partial: 'object_list',
         locals: {object_list: @site_hierarchy.community_list } %>
 </div>

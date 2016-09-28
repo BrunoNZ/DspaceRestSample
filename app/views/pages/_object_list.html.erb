@@ -5,12 +5,22 @@
           <div class="panel panel-default">
 
             <div class="panel-heading">
-              <%= link_to obj.name, dspace_community_path(obj.id) %>
-              <button
-                class="btn" data-toggle="collapse"
-                data-target="#<%= obj.id.html_safe %>">
-                Collapsible
-              </button>
+              <%= link_to dspace_community_path(obj.id),
+                    title: 'View',
+                    class: "btn btn-default" do %>
+                      <span class="glyphicon glyphicon-eye-open"></span>
+              <% end %>
+
+              <%= link_to "##{obj.id.html_safe}",
+                title: 'Collapse',
+                class: "btn btn-default",
+                'data-toggle': "collapse" do %>
+                  <span class="glyphicon glyphicon-plus"></span>
+                  <%= obj.name %>
+                  <span class="badge">
+                    <%= obj.collections.size + obj.sub_communities.size %>
+                  </span>
+              <% end %>
             </div>
 
             <div class="panel-body collapse" id="<%= obj.id.html_safe %>">
