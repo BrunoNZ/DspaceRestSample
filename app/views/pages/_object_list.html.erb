@@ -6,9 +6,14 @@
 
             <div class="panel-heading">
               <%= link_to obj.name, dspace_community_path(obj.id) %>
+              <button
+                class="btn" data-toggle="collapse"
+                data-target="#<%= obj.id.html_safe %>">
+                Collapsible
+              </button>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body collapse" id="<%= obj.id.html_safe %>">
 
               <%= render partial: 'object_list',
                     locals: {object_list: obj.sub_communities} %>
