@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :pages do
-    get 'home'
+    get 'welcome'
     get 'about'
     get 'contact'
   end
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'dspace_communities#index'
+  root 'pages#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

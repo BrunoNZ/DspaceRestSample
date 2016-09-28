@@ -1,6 +1,11 @@
-<h1>Editing Dspace Bitstream</h1>
+<div class="jumbotron">
 
-<%= render partial: 'form', locals: {url: dspace_bitstream_path, method: :put} %>
+  <div class="page-header">
+    <h1>Editing Bitstream</h1>
+    <%= link_to 'Show', dspace_bitstreams_path(@dspace_bitstream.id) %> |
+    <%= link_to 'Back', dspace_bitstreams_path %>
+  </div>
 
-<%= link_to 'Show', dspace_bitstreams_path(@dspace_bitstream.id) %> |
-<%= link_to 'Back', dspace_bitstreams_path %>
+  <%= render partial: 'form', locals: {url: dspace_bitstream_path, method: :put} %>
+
+</div>

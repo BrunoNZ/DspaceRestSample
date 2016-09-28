@@ -1,9 +1,13 @@
-<div class="page-header">
-  <h1><%= @dspace_metadata_field.name %></h1>
-  <%= link_to 'Back', dspace_schemas_path %>
-</div>
+<div class="jumbotron">
 
-<p><h3>Name:</h3> <%= @dspace_metadata_field.name %></p>
-<p><h3>Element:</h3> <%= @dspace_metadata_field.element %></p>
-<p><h3>Qualifier:</h3> <%= @dspace_metadata_field.qualifier %></p>
-<p><h3>Description:</h3> <%= @dspace_metadata_field.description %></p>
+  <div class="page-header">
+    <h1><%= @dspace_metadata_field.name %></h1>
+    <%= link_to 'Back', dspace_schemas_path %>
+  </div>
+
+  <p><h3>Name:</h3> <%= @dspace_metadata_field.name %></p>
+  <p><h3>Element:</h3> <%= @dspace_metadata_field.element %></p>
+  <p><h3>Qualifier:</h3> <%= @dspace_metadata_field.qualifier %></p>
+  <p><h3>Description:</h3> <%= @dspace_metadata_field.description %></p>
+
+</div>

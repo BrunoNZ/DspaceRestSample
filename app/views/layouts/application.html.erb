@@ -15,11 +15,11 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= render 'layouts/breadcumbs' %>
-       <%= yield %>
-    </main>
+    <div class="container">
+      <%= render 'layouts/messages' %>
+      <%= render 'layouts/breadcumbs' %>
+      <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>

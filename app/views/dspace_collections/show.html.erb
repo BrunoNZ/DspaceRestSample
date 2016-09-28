@@ -1,56 +1,60 @@
-<div class="page-header">
-  <h1><%= @dspace_collection.name %></h1>
-  <%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
-  <%= link_to 'Back', dspace_collections_path %>
-</div>
+<div class="jumbotron">
 
-<div class="row">
-  <div class="col-md-2">
-    <div class="thumbnail" >
-      <%= image_tag get_image_path(@dspace_collection.logo) %>
+  <div class="page-header">
+    <h1><%= @dspace_collection.name %></h1>
+    <%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
+    <%= link_to 'Back', dspace_collections_path %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="thumbnail" >
+        <%= image_tag get_image_path(@dspace_collection.logo) %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
 
-    <p><h3>Parent Community:</h3>
-    <%= link_to @dspace_collection.parent_community.name,
-          dspace_community_path(@dspace_collection.parent_community.id),
-          class: 'btn btn-default' %>
-    </p>
+      <p><h3>Parent Community:</h3>
+      <%= link_to @dspace_collection.parent_community.name,
+            dspace_community_path(@dspace_collection.parent_community.id),
+            class: 'btn btn-default' %>
+      </p>
 
-    <p>
-      <h3>Short Description:</h3>
-      <%= @dspace_collection.short_description %>
-    </p>
-    <p>
-      <h3>License:</h3>
-      <%= @dspace_collection.license %>
-    </p>
-    <p>
-      <h3>Introductory text (HTML):</h3>
-      <%= @dspace_collection.introductory_text.html_safe %>
-    </p>
-    <p>
-      <h3>Copyright text (HTML):</h3>
-      <%= @dspace_collection.copyright_text.html_safe %>
-    </p>
-    <p>
-      <h3>News (HTML):</h3>
-      <%= @dspace_collection.sidebar_text.html_safe %>
-    </p>
+      <p>
+        <h3>Short Description:</h3>
+        <%= @dspace_collection.short_description %>
+      </p>
+      <p>
+        <h3>License:</h3>
+        <%= @dspace_collection.license %>
+      </p>
+      <p>
+        <h3>Introductory text (HTML):</h3>
+        <%= @dspace_collection.introductory_text.html_safe %>
+      </p>
+      <p>
+        <h3>Copyright text (HTML):</h3>
+        <%= @dspace_collection.copyright_text.html_safe %>
+      </p>
+      <p>
+        <h3>News (HTML):</h3>
+        <%= @dspace_collection.sidebar_text.html_safe %>
+      </p>
 
-    <p>
-      <h3>Items in this collection:</h3>
-      <%= link_to 'Create Item',
-            new_dspace_item_path(parent: @dspace_collection.id),
-            class: 'btn btn-success' %>
+      <p>
+        <h3>Items in this collection:</h3>
+        <%= link_to 'Create Item',
+              new_dspace_item_path(parent: @dspace_collection.id),
+              class: 'btn btn-success' %>
 
-      <%= render partial: 'dspace_items/index_table',
-            locals: {dspace_items: @dspace_collection.items} %>
-    </p>
+        <%= render partial: 'dspace_items/index_table',
+              locals: {dspace_items: @dspace_collection.items} %>
+      </p>
 
+    </div>
   </div>
+
 </div>

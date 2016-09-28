@@ -1,12 +1,16 @@
-<div class="page-header">
-  <h1><%= @dspace_schema.prefix %></h1>
-  <%= link_to 'Back', dspace_schemas_path %>
+<div class="jumbotron">
+
+  <div class="page-header">
+    <h1><%= @dspace_schema.prefix %></h1>
+    <%= link_to 'Back', dspace_schemas_path %>
+  </div>
+
+  <p><h3>Namespace:</h3> <%= @dspace_schema.namespace %></p>
+
+  <p>
+    <h3>Fields:</h3>
+    <%= render partial: 'dspace_metadata_fields/index_table',
+      locals: {dspace_metadata_fields: @dspace_schema.fields } %>
+  </p>
+
 </div>
-
-<p><h3>Namespace:</h3> <%= @dspace_schema.namespace %></p>
-
-<p>
-  <h3>Fields:</h3>
-  <%= render partial: 'dspace_metadata_fields/index_table',
-    locals: {dspace_metadata_fields: @dspace_schema.fields } %>
-</p>

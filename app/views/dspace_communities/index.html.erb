@@ -1,9 +1,17 @@
-<h1>Dspace Communities</h1>
+<div class="jumbotron">
 
-<%= link_to 'New Dspace Community', new_dspace_community_path, class: 'btn btn-success' %>
-</br></br>
-<%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>
+  <div class="page-header">
+    <h1>Communities</h1>
+    <%= link_to new_dspace_community_path,
+            title: 'New',
+            class: 'btn btn-success' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            New
+    <% end %>
+  </div>
 
-<%= render partial: 'index_table', locals: {dspace_communities: @dspace_communities} %>
+  <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>
+  <%= render partial: 'index_table', locals: {dspace_communities: @dspace_communities} %>
+  <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>
 
-<%= render partial: 'layouts/page_selection', locals: {objects: @dspace_communities} %>
+</div>

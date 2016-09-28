@@ -1,61 +1,65 @@
-<div class="page-header">
-  <h1><%= @dspace_community.name %></h1>
-  <%= link_to 'Edit', edit_dspace_community_path(@dspace_community.id) %> |
-  <%= link_to 'Back', dspace_communities_path %>
-</div>
+<div class="jumbotron">
 
-<div class="row">
-  <div class="col-md-2">
-    <div class="thumbnail" >
-      <%= image_tag get_image_path(@dspace_community.logo) %>
+  <div class="page-header">
+    <h1><%= @dspace_community.name %></h1>
+    <%= link_to 'Edit', edit_dspace_community_path(@dspace_community.id) %> |
+    <%= link_to 'Back', dspace_communities_path %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="thumbnail" >
+        <%= image_tag get_image_path(@dspace_community.logo) %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
 
-    <p><h3>Parent Community:</h3>
-    <% unless @dspace_community.parent_community.nil? %>
-      <%= link_to @dspace_community.parent_community.name,
-            dspace_community_path(@dspace_community.parent_community.id),
-            class: 'btn btn-default' %>
-    <% end %>
-    </p>
+      <p><h3>Parent Community:</h3>
+      <% unless @dspace_community.parent_community.nil? %>
+        <%= link_to @dspace_community.parent_community.name,
+              dspace_community_path(@dspace_community.parent_community.id),
+              class: 'btn btn-default' %>
+      <% end %>
+      </p>
 
-    <p><h3>Short Description:</h3> <%= @dspace_community.short_description %></p>
-    <p>
-      <h3>Introductory text (HTML):</h3>
-      <%= @dspace_community.introductory_text.html_safe %>
-    </p>
-    <p>
-      <h3>Copyright text (HTML):</h3>
-      <%= @dspace_community.copyright_text.html_safe %>
-    </p>
-    <p>
-      <h3>News (HTML):</h3>
-      <%= @dspace_community.sidebar_text.html_safe %>
-    </p>
+      <p><h3>Short Description:</h3> <%= @dspace_community.short_description %></p>
+      <p>
+        <h3>Introductory text (HTML):</h3>
+        <%= @dspace_community.introductory_text.html_safe %>
+      </p>
+      <p>
+        <h3>Copyright text (HTML):</h3>
+        <%= @dspace_community.copyright_text.html_safe %>
+      </p>
+      <p>
+        <h3>News (HTML):</h3>
+        <%= @dspace_community.sidebar_text.html_safe %>
+      </p>
 
-    <p>
-      <h3>Collections in this community:</h3>
-      <%= link_to 'Create Collection',
-            new_dspace_collection_path(parent: @dspace_community.id),
-            class: 'btn btn-success' %>
+      <p>
+        <h3>Collections in this community:</h3>
+        <%= link_to 'Create Collection',
+              new_dspace_collection_path(parent: @dspace_community.id),
+              class: 'btn btn-success' %>
 
-      <%= render partial: 'dspace_collections/index_table',
-            locals: {dspace_collections: @dspace_community.collections} %>
-    </p>
+        <%= render partial: 'dspace_collections/index_table',
+              locals: {dspace_collections: @dspace_community.collections} %>
+      </p>
 
-    <p>
-      <h3>SubCommunities in this community:</h3>
-      <%= link_to 'Create SubCommunity',
-            new_dspace_community_path(parent: @dspace_community.id),
-            class: 'btn btn-success' %>
+      <p>
+        <h3>SubCommunities in this community:</h3>
+        <%= link_to 'Create SubCommunity',
+              new_dspace_community_path(parent: @dspace_community.id),
+              class: 'btn btn-success' %>
 
-      <%= render partial: 'dspace_communities/index_table',
-            locals: {dspace_communities: @dspace_community.sub_communities} %>
-    </p>
+        <%= render partial: 'dspace_communities/index_table',
+              locals: {dspace_communities: @dspace_community.sub_communities} %>
+      </p>
 
+    </div>
   </div>
+
 </div>

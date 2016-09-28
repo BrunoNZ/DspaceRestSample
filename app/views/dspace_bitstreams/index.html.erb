@@ -1,9 +1,17 @@
-<h1>Dspace Bitstreams</h1>
+<div class="jumbotron">
 
-<%= link_to 'New Dspace Bitstream', new_dspace_bitstream_path, class: 'btn btn-success' %>
-</br></br>
-<%= render partial: 'layouts/page_selection', locals: {objects: @dspace_bitstreams} %>
+  <div class="page-header">
+    <h1>Bitstreams</h1>
+    <%= link_to new_dspace_bitstream_path,
+            title: 'New',
+            class: 'btn btn-success' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            New
+    <% end %>
+  </div>
 
-<%= render partial: 'index_table', locals: {dspace_bitstreams: @dspace_bitstreams} %>
+  <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_bitstreams} %>
+  <%= render partial: 'index_table', locals: {dspace_bitstreams: @dspace_bitstreams} %>
+  <%= render partial: 'layouts/page_selection', locals: {objects: @dspace_bitstreams} %>
 
-<%= render partial: 'layouts/page_selection', locals: {objects: @dspace_bitstreams} %>
+</div>

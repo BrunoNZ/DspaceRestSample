@@ -1,6 +1,11 @@
-<h1>Editing Dspace Metadata Field</h1>
+<div class="jumbotron">
 
-<%= render partial: 'form', locals: {url: dspace_metadata_field_path, method: :put} %>
+  <div class="page-header">
+    <h1>Editing Metadata Field</h1>
+    <%= link_to 'Show', dspace_metadata_field_path(@dspace_metadata_field.id) %> |
+    <%= link_to 'Back', dspace_metadata_fields_path %>
+  </div>
 
-<%= link_to 'Show', dspace_metadata_field_path(@dspace_metadata_field.id) %> |
-<%= link_to 'Back', dspace_metadata_fields_path %>
+  <%= render partial: 'form', locals: {url: dspace_metadata_field_path, method: :put} %>
+
+</div>

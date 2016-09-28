@@ -1,5 +1,15 @@
-<h1>Dspace Schemas</h1>
+<div class="jumbotron">
 
-<%= link_to 'New Dspace Schema', new_dspace_schema_path, class: 'btn btn-success' %>
+  <div class="page-header">
+    <h1>Schemas</h1>
+    <%= link_to new_dspace_schema_path,
+            title: 'New',
+            class: 'btn btn-success' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            New
+    <% end %>
+  </div>
 
-<%= render partial: 'index_table', locals: {dspace_schemas: @dspace_schemas} %>
+  <%= render partial: 'index_table', locals: {dspace_schemas: @dspace_schemas} %>
+
+</div>

@@ -1,22 +1,26 @@
-<div class="page-header">
-  <h1><%= @dspace_bitstream.name %></h1>
-  <%= link_to 'Edit', edit_dspace_bitstream_path(@dspace_bitstream.id) %> |
-  <%= link_to 'Back', dspace_bitstreams_path %>
+<div class="jumbotron">
+
+  <div class="page-header">
+    <h1><%= @dspace_bitstream.name %></h1>
+    <%= link_to 'Edit', edit_dspace_bitstream_path(@dspace_bitstream.id) %> |
+    <%= link_to 'Back', dspace_bitstreams_path %>
+  </div>
+
+  <%= link_to retrieve_link_of(@dspace_bitstream),
+        title: 'Download',
+        class: 'btn btn-success' do %>
+        <span class="glyphicon glyphicon-download"></span>
+        Download
+  <% end %>
+
+  <p><h3>Parent Object:</h3>
+  <%= link_to @dspace_bitstream.parent_object['name'],
+        dspace_item_path(@dspace_bitstream.parent_object['uuid']),
+        class: 'btn btn-default' %>
+  </p>
+
+  <p><h3>Name:</h3> <%= @dspace_bitstream.name %></p>
+  <p><h3>Description:</h3> <%= @dspace_bitstream.description %></p>
+  <p><h3>Bundle Name:</h3> <%= @dspace_bitstream.bundle_name %></p>
+
 </div>
-
-<%= link_to retrieve_link_of(@dspace_bitstream),
-      title: 'Download',
-      class: 'btn btn-success' do %>
-      <span class="glyphicon glyphicon-download"></span>
-      Download
-<% end %>
-
-<p><h3>Parent Object:</h3>
-<%= link_to @dspace_bitstream.parent_object['name'],
-      dspace_item_path(@dspace_bitstream.parent_object['uuid']),
-      class: 'btn btn-default' %>
-</p>
-
-<p><h3>Name:</h3> <%= @dspace_bitstream.name %></p>
-<p><h3>Description:</h3> <%= @dspace_bitstream.description %></p>
-<p><h3>Bundle Name:</h3> <%= @dspace_bitstream.bundle_name %></p>
