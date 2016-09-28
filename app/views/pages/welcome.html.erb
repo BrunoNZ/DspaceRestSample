@@ -1,31 +1,18 @@
  <div class="jumbotron text-center">
-  <h1>DSpace REST API Sample Client</h1>
+  <h1 class="">
+    DSpace REST API Sample Client
+  </h1>
   <p>
-    This application is fully based on DSpace REST API and it doesn't have
-    any
+    This application is fully based on DSpace REST API and it is completely free of database. Everything is stored on a DSpace instance and all the requests are made via its REST API, including authentication and all CRUD operations.
   </p>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>DSpace REST API</h3>
-      <p>This app uses the DSpace REST API as the sole data source. It was build by Peter Dietz at Longsight to test the REST API, and to build a prototype new user interface for DSpace.</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>What is this?</h3>
-      <p>This is a REST API client to DSpace. The purpose is to ensure all the functionality works.</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>What Works</h3>
-      <p>The commit activity is the best indicator of what's been worked on, but here's what works.
-
-    Top Level Community List
-    Community Page
-    Collection Page
-    Item Page
-    Creating a Top-Level-Community
-
-And what doesn't work includes searching, statistics, and Create/Edit/Delete. </p>
-    </div>
-  </div>
+  <p>
+    This was built using Ruby on Rails framework, and depends on the rubygem <b><%= link_to 'dspace-rest-client', 'https://rubygems.org/gems/dspace_rest_client/' %></b>. The purpose is to be a concept proof not only for DSpace's REST API but also for the mentioned rubygem. Feel free to take a look at the code behind it at: <b><%= link_to 'DspaceRestSample Repository', 'https://gitlab.c3sl.ufpr.br/bnzanette/DspaceRestSample' %></b>
+  </p>
+  <p>
+    Currently, the DSpace instance that is being used is:
+    <br>
+    <b><%= link_to DspaceService.link, DspaceService.link %></b>
+    <br>
+    Check it out to get more informations!
+  </p>
 </div>
