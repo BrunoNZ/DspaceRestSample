@@ -1,22 +1,29 @@
 <% unless object_list.nil? || object_list.empty? %>
-  <ul>
     <% object_list.each do |obj| %>
 
         <% if obj.is_a?(Dspace::Community) %>
-          <li>
-            <%= link_to obj.name, dspace_community_path(obj.id) %>
-          </li>
-          <%= render partial: 'object_list',
-                locals: {object_list: obj.sub_communities} %>
-          <%= render partial: 'object_list',
-                locals: {object_list: obj.collections} %>
+          <div class="panel panel-default">
 
+            <div class="panel-heading">
+              <%= link_to obj.name, dspace_community_path(obj.id) %>
+            </div>
+
+            <div class="panel-body">
+
+              <%= render partial: 'object_list',
+                    locals: {object_list: obj.sub_communities} %>
+
+              <div class="list-group">
+                <%= render partial: 'object_list',
+                      locals: {object_list: obj.collections} %>
+              </div>
+
+            </div>
+          </div>
         <% else %>
-          <li>
-            <%= link_to obj.name, dspace_collection_path(obj.id) %>
-          </li>
+          <%= link_to obj.name, dspace_collection_path(obj.id),
+                class: "list-group-item" %>
         <% end %>
 
     <% end %>
-  </ul>
 <% end %>
