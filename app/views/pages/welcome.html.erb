@@ -16,3 +16,8 @@
     Check it out to get more informations!
   </p>
 </div>
+
+<div>
+  <%= render partial: 'object_list',
+        locals: {object_list: @site_hierarchy.community_list } %>
+</div>
