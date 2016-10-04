@@ -1,0 +1,5 @@
+<div class="inline-form">
+  <%= f.input :query_field, collection: @metadata_keys, label: false %>
+  <%= f.input :query_op, collection: @operators, selected: 'exists', label: false %>
+  <%= f.input :query_val, label: false %>
+</div>

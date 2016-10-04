@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     get 'contact'
   end
 
+  namespace :dspace_reports do
+    get 'item_query'
+  end
+
   resources :dspace_schemas
   resources :dspace_metadata_fields
   resources :dspace_communities
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
   resources :dspace_items
   resources :dspace_bitstreams
 
-  # The priority is based upon order of creation: first created -> highest priority.
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
