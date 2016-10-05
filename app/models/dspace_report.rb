@@ -4,19 +4,19 @@ class DspaceReport
   include ActiveModel::Model
 
   def self.filters
-    DspaceService.client.query_report.filters
+    DspaceService.client.report.filters
   end
 
   def self.filtered_items(args)
-    DspaceService.client.query_report.filtered_items(
-      :'collSel[]' => args['collection'] || '',
-      :'query_field[]' => args['query_field'] || '',
-      :'query_op[]' => args['query_op'] || '',
-      :'query_val[]' => args['query_val'] || '',
+    DspaceService.client.report.filtered_items(
+      :'collSel[]' => args['collection'] || [],
+      :'query_field[]' => args['query_field'] || [],
+      :'query_op[]' => args['query_op'] || [],
+      :'query_val[]' => args['query_val'] || [],
       limit: args['limit'] || '100',
       offset: args['offset'] || '0',
-      expand: args['expand'] || 'parentCollection,metadata',
-      filters: args['filters'] || ''
+      expand: args['expand'] || '',
+      filters: args['filters'] || []
     )
   end
 

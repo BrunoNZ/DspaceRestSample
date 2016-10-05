@@ -8,6 +8,10 @@ class DspaceReportsController < ApplicationController
     @operators = DspaceReport.operators
     @metadata_keys = permitted_metadata_keys
 
+    puts "================================================"
+    puts dspace_item_search_params.inspect
+    puts "================================================"
+
     @dspace_items = dspace_item_search_params.nil? ?
       [] :
       DspaceReport.filtered_items(dspace_item_search_params)
@@ -18,10 +22,13 @@ class DspaceReportsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dspace_item_search_params
       unless params[:q].nil?
-        params.require(:q).permit(
-          :collection, :query_field, :query_op, :query_val,
-          :limit, :offset, :expand, :filters
-        )
+        params.require(:q)
+        # .permit(
+        #   :limit, :offset, expand: [],
+        #   collection: [], filters: [],
+        #   query_field: [], query_op: [], query_val: []
+        # )
+        params['q']
       end
     end
 

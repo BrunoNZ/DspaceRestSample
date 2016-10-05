@@ -1,13 +1,17 @@
 <%= simple_form_for :q, url: dspace_reports_item_query_path, method: :get do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-group">
-    <%= f.input :collection, collection: @collections %>
-    <%= f.input :filters, collection: @filters %>
+  <div id="metadata_fields">
+    <%= render partial: 'metadata_field', locals: {f: f} %>
   </div>
 
-  <div id="poll_choices">
-    <%= render partial: 'metadata_field', locals: {f: f} %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= render partial: 'collections_collapse_form', locals: {f: f} %>
+    </div>
+    <div class="col-md-6">
+      <%= render partial: 'filters_collapse_form', locals: {f: f} %>
+    </div>
   </div>
 
   <%= f.button :submit, 'Search', class: "btn btn-primary" %>
