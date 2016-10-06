@@ -8,10 +8,6 @@ class DspaceReportsController < ApplicationController
     @operators = DspaceReport.operators
     @metadata_keys = permitted_metadata_keys
 
-    puts "================================================"
-    puts dspace_item_search_params.inspect
-    puts "================================================"
-
     @dspace_items = dspace_item_search_params.nil? ?
       [] :
       DspaceReport.filtered_items(dspace_item_search_params)
