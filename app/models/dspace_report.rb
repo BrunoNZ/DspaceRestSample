@@ -16,7 +16,7 @@ class DspaceReport
       limit: args['limit'] || '100',
       offset: args['offset'] || '0',
       expand: args['expand'] || '',
-      filters: args['filters'] || []
+      filters: compact_hash(args['filters']) || []
     )
   end
 
@@ -35,6 +35,10 @@ class DspaceReport
     ]
   end
 
+  private
+
+    def self.compact_hash h
+      h.reject { |a| a.empty? }.join(',') unless h.nil?
+    end
+
 end
-#
-# https://demo.dspace.org/rest/filtered-items?collSel[]=3cf09f45-2bfc-442d-b566-cfe20009119d&expand=&filters=&limit=100&offset=0&query_field[]=dc.contributor.author&query_op[]=&query_val[]=
