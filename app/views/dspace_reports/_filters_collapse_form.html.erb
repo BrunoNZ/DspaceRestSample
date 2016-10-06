@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <%= link_to "#filters_collapse_form",
+      title: 'Collapse',
+      class: "btn btn-default",
+      'data-toggle': "collapse" do %>
+        <span class="glyphicon glyphicon-plus"></span>
+        Filters
+    <% end %>
+  </div>
+
+  <div class="panel-body collapse" id="filters_collapse_form">
+    <%= f.input :filters, label: false, collection: @filters, as: :check_boxes %>
+  </div>
+</div>
