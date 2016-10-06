@@ -1,9 +1,17 @@
 <%= simple_form_for :q, url: dspace_reports_item_query_path, method: :get do |f| %>
   <%= f.error_notification %>
 
-  <div id="metadata_fields">
-    <%# render partial: 'metadata_field', locals: {f: f} %>
-    <%# render partial: 'metadata_field', locals: {f: f} %>
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+      Metadata Fields Query
+    </div>
+
+    <div class="panel-body">
+      <div id="metadata-fields">
+        <%= render partial: 'metadata_field', locals: {f: f} %>
+      </div>
+    </div>
   </div>
 
   <div class="row">
