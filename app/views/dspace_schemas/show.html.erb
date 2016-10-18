@@ -9,9 +9,12 @@
 
   <p>
     <h3>Metadata Fields:</h3>
-    <%= link_to 'Create Metadata Field',
-          new_dspace_schema_dspace_metadata_field_path(@dspace_schema.prefix),
-          class: 'btn btn-success' %>
+    <% if current_user_signed_in? %>
+      <%= link_to 'Create Metadata Field',
+            new_dspace_schema_dspace_metadata_field_path(@dspace_schema.prefix),
+            class: 'btn btn-success' %>
+    <% end %>
+
     <%= render partial: 'dspace_metadata_fields/index_table',
       locals: {dspace_metadata_fields: @dspace_schema.fields } %>
   </p>

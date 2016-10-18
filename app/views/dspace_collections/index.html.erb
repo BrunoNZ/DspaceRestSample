@@ -2,11 +2,13 @@
 
   <div class="page-header">
     <h1>Collections</h1>
-    <%= link_to new_dspace_collection_path,
-            title: 'New',
-            class: 'btn btn-success' do %>
-            <span class="glyphicon glyphicon-plus"></span>
-            New
+    <% if user_signed_in? %>
+      <%= link_to new_dspace_collection_path,
+              title: 'New',
+              class: 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              New
+      <% end %>
     <% end %>
   </div>
 

@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def user_signed_in?
+    @_current_user.signed_in?
+  end
+
   def get_image_path(bitstream)
     unless bitstream.nil?
       file = DspaceService.client.bitstreams.retrieve(
@@ -24,7 +28,7 @@ module ApplicationHelper
   end
 
   def next_page_status(objects)
-    objects.empty? ? 'disabled' : 'enabled'
+    (objects.empty? || objects.length < @limit) ? 'disabled' : 'enabled'
   end
 
   def min_numbered_page(page)
@@ -32,6 +36,6 @@ module ApplicationHelper
   end
 
   def max_numbered_page(page,objects)
-    objects.empty? ? page : page+2
+    (objects.empty? || objects.length < @limit) ? page : page+2
   end
 end

@@ -4,11 +4,13 @@
   <div class="page-header">
     <h2><b><%= @dspace_schema.prefix %></b> schema's</h2>
     <h1>Metadata Fields<h1>
-    <%= link_to new_dspace_schema_dspace_metadata_field_path(@dspace_schema.prefix),
-            title: 'New',
-            class: 'btn btn-success' do %>
-            <span class="glyphicon glyphicon-plus"></span>
-            New
+    <% if user_signed_in? %>
+      <%= link_to new_dspace_schema_dspace_metadata_field_path(@dspace_schema.prefix),
+              title: 'New',
+              class: 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-plus"></span>
+              New
+      <% end %>
     <% end %>
   </div>
 

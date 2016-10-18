@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "DspaceRestSample" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "DSpace REST Client" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
 
     <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
       <%= render 'layouts/navigation' %>
     </header>
     <div class="container">
-      <%= render 'layouts/breadcumbs' %>
+      <%# render 'layouts/breadcumbs' %>
       <%= render 'layouts/messages' %>
       <%= yield %>
     </div>

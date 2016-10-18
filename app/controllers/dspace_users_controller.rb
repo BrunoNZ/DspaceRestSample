@@ -40,7 +40,7 @@ class DspaceUsersController < ApplicationController
     end
 
     def set_referer_url
-      session[:referer_url] = request.env["HTTP_REFERER"]
+      session[:referer_url] = request.env["HTTP_REFERER"] || root_path
     end
 
     def clear_referer_url

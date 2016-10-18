@@ -2,7 +2,9 @@
 
   <div class="page-header">
     <h1><%= @dspace_community.name %></h1>
-    <%= link_to 'Edit', edit_dspace_community_path(@dspace_community.id) %> |
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_dspace_community_path(@dspace_community.id) %> |
+    <% end %>
     <%= link_to 'Back', dspace_communities_path %>
   </div>
 
@@ -41,9 +43,11 @@
 
       <p>
         <h3>Collections in this community:</h3>
-        <%= link_to 'Create Collection',
-              new_dspace_collection_path(parent: @dspace_community.id),
-              class: 'btn btn-success' %>
+        <% if user_signed_in? %>
+          <%= link_to 'Create Collection',
+                new_dspace_collection_path(parent: @dspace_community.id),
+                class: 'btn btn-success' %>
+        <% end %>
 
         <%= render partial: 'dspace_collections/index_table',
               locals: {dspace_collections: @dspace_community.collections} %>
@@ -51,9 +55,11 @@
 
       <p>
         <h3>SubCommunities in this community:</h3>
-        <%= link_to 'Create SubCommunity',
-              new_dspace_community_path(parent: @dspace_community.id),
-              class: 'btn btn-success' %>
+        <% if user_signed_in? %>
+          <%= link_to 'Create SubCommunity',
+                new_dspace_community_path(parent: @dspace_community.id),
+                class: 'btn btn-success' %>
+        <% end %>
 
         <%= render partial: 'dspace_communities/index_table',
               locals: {dspace_communities: @dspace_community.sub_communities} %>

@@ -2,9 +2,11 @@
 
   <div class="page-header">
     <h1><%= @dspace_metadata_field.name %></h1>
-    <%= link_to 'Edit', edit_dspace_schema_dspace_metadata_field_path(
-                          @dspace_schema.prefix, @dspace_metadata_field.id
-                        ) %> |
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_dspace_schema_dspace_metadata_field_path(
+                            @dspace_schema.prefix, @dspace_metadata_field.id
+                          ) %> |
+    <% end %>
     <%= link_to 'Back', dspace_schemas_path %>
   </div>
 

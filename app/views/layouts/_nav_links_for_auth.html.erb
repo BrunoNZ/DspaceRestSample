@@ -1,4 +1,4 @@
-<% if @_current_user.signed_in? %>
+<% if user_signed_in? %>
   <li>
     <%= link_to dspace_users_show_path do %>
       <span class="glyphicon glyphicon-user" style="vertical-align:middle"></span>

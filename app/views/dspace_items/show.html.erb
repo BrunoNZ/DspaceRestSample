@@ -2,7 +2,9 @@
 
   <div class="page-header">
     <h1><%= @dspace_item.name %></h1>
-    <%= link_to 'Edit', edit_dspace_item_path(@dspace_item.id) %> |
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_dspace_item_path(@dspace_item.id) %> |
+    <% end %>
     <%= link_to 'Back', dspace_items_path %>
   </div>
 
@@ -39,9 +41,11 @@
 
       <p>
         <h3>Bitstreams in this item:</h3>
-        <%= link_to 'Create Bitstream',
-              new_dspace_bitstream_path(parent: @dspace_item.id),
-              class: 'btn btn-success' %>
+        <% if user_signed_in? %>
+          <%= link_to 'Create Bitstream',
+                new_dspace_bitstream_path(parent: @dspace_item.id),
+                class: 'btn btn-success' %>
+        <% end %>
 
         <%= render partial: 'dspace_bitstreams/index_table',
               locals: {dspace_bitstreams: @dspace_item.bit_streams } %>

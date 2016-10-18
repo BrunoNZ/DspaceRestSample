@@ -2,7 +2,9 @@
 
   <div class="page-header">
     <h1><%= @dspace_collection.name %></h1>
-    <%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_dspace_collection_path(@dspace_collection.id) %> |
+    <% end %>
     <%= link_to 'Back', dspace_collections_path %>
   </div>
 
@@ -46,9 +48,11 @@
 
       <p>
         <h3>Items in this collection:</h3>
-        <%= link_to 'Create Item',
-              new_dspace_item_path(parent: @dspace_collection.id),
-              class: 'btn btn-success' %>
+        <% if user_signed_in? %>
+          <%= link_to 'Create Item',
+                new_dspace_item_path(parent: @dspace_collection.id),
+                class: 'btn btn-success' %>
+        <% end %>
 
         <%= render partial: 'dspace_items/index_table',
               locals: {dspace_items: @dspace_collection.items} %>

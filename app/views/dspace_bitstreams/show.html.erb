@@ -2,7 +2,9 @@
 
   <div class="page-header">
     <h1><%= @dspace_bitstream.name %></h1>
-    <%= link_to 'Edit', edit_dspace_bitstream_path(@dspace_bitstream.id) %> |
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_dspace_bitstream_path(@dspace_bitstream.id) %> |
+    <% end %>
     <%= link_to 'Back', dspace_bitstreams_path %>
   </div>
 
