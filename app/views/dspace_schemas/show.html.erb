@@ -9,7 +9,7 @@
 
   <p>
     <h3>Metadata Fields:</h3>
-    <% if current_user_signed_in? %>
+    <% if user_signed_in? %>
       <%= link_to 'Create Metadata Field',
             new_dspace_schema_dspace_metadata_field_path(@dspace_schema.prefix),
             class: 'btn btn-success' %>
