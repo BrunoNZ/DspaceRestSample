@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+    Schema
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <% DspaceSchema.all.each do |schema| %>
+      <li><%= link_to schema.prefix,
+                dspace_schema_dspace_metadata_fields_path(schema.prefix) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

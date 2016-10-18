@@ -17,22 +17,24 @@ class DspaceMetadataField < Dspace::MetadataField
     )
   end
 
-  def self.save(args)
+  def self.save(schema_prefix, args)
     DspaceService.client.schema_registry.create_metadata_field(
       Dspace::MetadataField.new(args),
-      schema_prefix: args['schema_prefix']
+      schema_prefix: schema_prefix
     )
   end
 
-  def self.update(args, field_id)
-    DspaceService.client.schema_registry.create_metadata_field(
+  def self.update(field_id, args)
+    DspaceService.client.schema_registry.update_metadata_field(
       Dspace::MetadataField.new(args),
       field_id: field_id
     )
   end
 
   def self.destroy(field_id)
-    DspaceService.client.schema_registry.delete_schema(field_id: field_id)
+    DspaceService.client.schema_registry.delete_schema(
+      field_id: field_id
+    )
   end
 
 end

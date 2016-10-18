@@ -14,7 +14,9 @@
         <td><%= dspace_metadata_field.id %></td>
         <td>
           <%= link_to dspace_metadata_field.name,
-                  dspace_metadata_field_path(dspace_metadata_field.id),
+                  dspace_schema_dspace_metadata_field_path(
+                    @dspace_schema.prefix, dspace_metadata_field.id
+                  ),
                   title: dspace_metadata_field.name,
                   class: 'btn btn-default object-name-btn' %>
         </td>
@@ -22,12 +24,16 @@
 
 
         <td class="action-btns-field">
-          <%= link_to edit_dspace_metadata_field_path(dspace_metadata_field.id),
+          <%= link_to edit_dspace_schema_dspace_metadata_field_path(
+                        @dspace_schema.prefix,dspace_metadata_field.id
+                      ),
                   title: 'Edit',
                   class: 'btn btn-primary' do %>
                   <span class="glyphicon glyphicon-edit"></span>
           <% end %>
-          <%= link_to dspace_metadata_field_path(dspace_metadata_field.id),
+          <%= link_to dspace_schema_dspace_metadata_field_path(
+                    @dspace_schema.prefix, dspace_metadata_field.id
+                  ),
                   title: 'Destroy',
                   method: :delete,
                   data: { confirm: 'Are you sure?' },

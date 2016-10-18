@@ -1,10 +1,12 @@
 <div class="jumbotron">
 
   <div class="page-header">
-    <h1>New Metadata Fieldy</h1>
-    <%= link_to 'Back', dspace_metadata_fields_path %>
+    <h1>New Metadata Field</h1>
+    <%= link_to 'Back', dspace_schema_dspace_metadata_fields_path(@dspace_schema.prefix) %>
   </div>
 
-  <%= render partial: 'form', locals: {url: dspace_metadata_fields_path, method: :post} %>
+  <%= render partial: 'form', locals: {
+    url: dspace_schema_dspace_metadata_fields_path(@dspace_schema.prefix),
+    method: :post} %>
 
 </div>

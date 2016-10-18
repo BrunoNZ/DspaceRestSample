@@ -17,12 +17,13 @@ Rails.application.routes.draw do
     get 'item_query'
   end
 
-  resources :dspace_schemas
-  resources :dspace_metadata_fields
-  resources :dspace_communities
-  resources :dspace_collections
-  resources :dspace_items
-  resources :dspace_bitstreams
+  resources :dspace_communities, path: '/communities'
+  resources :dspace_collections, path: '/collections'
+  resources :dspace_items, path: '/items'
+  resources :dspace_bitstreams, path: '/bitstreams'
+  resources :dspace_schemas, path: '/schemas' do
+    resources :dspace_metadata_fields, path: '/metadata_fields'
+  end
 
     # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

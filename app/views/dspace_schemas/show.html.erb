@@ -8,7 +8,10 @@
   <p><h3>Namespace:</h3> <%= @dspace_schema.namespace %></p>
 
   <p>
-    <h3>Fields:</h3>
+    <h3>Metadata Fields:</h3>
+    <%= link_to 'Create Metadata Field',
+          new_dspace_schema_dspace_metadata_field_path(@dspace_schema.prefix),
+          class: 'btn btn-success' %>
     <%= render partial: 'dspace_metadata_fields/index_table',
       locals: {dspace_metadata_fields: @dspace_schema.fields } %>
   </p>

@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :parent_schema, collection: @parent_options,
-        selected: @parent_selected, disabled: false %>
+        selected: @parent_selected, disabled: true %>
     <%= f.input :element, label: 'Element:' %>
     <%= f.input :qualifier, label: 'Qualifier:' %>
     <%= f.input :description, label: 'description:' %>

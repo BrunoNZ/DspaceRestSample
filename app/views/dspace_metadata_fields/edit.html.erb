@@ -2,10 +2,12 @@
 
   <div class="page-header">
     <h1>Editing Metadata Field</h1>
-    <%= link_to 'Show', dspace_metadata_field_path(@dspace_metadata_field.id) %> |
-    <%= link_to 'Back', dspace_metadata_fields_path %>
+    <%= link_to 'Show', dspace_schema_dspace_metadata_field_path(
+                          @dspace_schema.prefix, @dspace_metadata_field.id
+                        ) %> |
+    <%= link_to 'Back', dspace_schema_dspace_metadata_fields_path(@dspace_schema.prefix) %>
   </div>
 
-  <%= render partial: 'form', locals: {url: dspace_metadata_field_path, method: :put} %>
+  <%= render partial: 'form', locals: {url: dspace_schema_dspace_metadata_field_path, method: :put} %>
 
 </div>
