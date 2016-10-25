@@ -1,14 +1,14 @@
 development:
   host: demo.dspace.org
   port:
-  bitstreams_path: 'public/images'
+  bitstreams_path: 'public/bitstreams'
 
 test:
   host: localhost
   port: 8443
-  bitstreams_path: 'public/images'
+  bitstreams_path: 'public/bitstreams'
 
 production:
   host: demo.dspace.org
   port:
-  bitstreams_path: 'public/images'
+  bitstreams_path: 'public/bitstreams'

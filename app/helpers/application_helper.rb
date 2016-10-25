@@ -4,14 +4,18 @@ module ApplicationHelper
     @_current_user.signed_in?
   end
 
-  def get_image_path(bitstream)
+  def get_bitstream_path(bitstream, path = DspaceService.bitstreams_path)
     unless bitstream.nil?
       file = DspaceService.client.bitstreams.retrieve(
               id: bitstream.id,
-              bitstreams_path: 'public/images')
+              bitstreams_path: path)
       return File.basename(file.path)
     end
-    return 'no_thumbnail.svg'
+    return nil
+  end
+
+  def get_image_path(bitstream)
+    return get_bitstream_path(bitstream, 'public/images') || 'no_thumbnail.svg'
   end
 
   def retrieve_link_of bitstream
