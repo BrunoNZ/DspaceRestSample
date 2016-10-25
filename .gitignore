@@ -21,4 +21,5 @@
 /public/assets
 /config/secrets.yml
 public/images/
+public/bitstreams/
 # ignore server scripts
