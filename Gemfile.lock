@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/BrunoNZ/dspace-rest-client.git
-  revision: e61b2dea0e7b1fc2e9dc94c791e5af705e1ac8a9
+  revision: d0c8b75bdf00209ecfeed830622e6d898456259d
   branch: v.3.x.x
   specs:
     dspace_rest_client (3.0.0)
