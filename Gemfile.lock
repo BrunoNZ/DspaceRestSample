@@ -1,3 +1,15 @@
+GIT
+  remote: https://github.com/BrunoNZ/dspace-rest-client.git
+  revision: e61b2dea0e7b1fc2e9dc94c791e5af705e1ac8a9
+  branch: v.3.x.x
+  specs:
+    dspace_rest_client (3.0.0)
+      activesupport (~> 6.0, >= 6.0.2.1)
+      faraday (~> 1.0)
+      json (~> 2.3)
+      net-http-persistent (~> 3.1)
+      resource_kit (~> 0.1.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,12 +88,6 @@ GEM
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.6)
-    dspace_rest_client (3.0.0)
-      activesupport (~> 6.0, >= 6.0.2.1)
-      faraday (~> 1.0)
-      json (~> 2.3)
-      net-http-persistent (~> 3.1)
-      resource_kit (~> 0.1.7)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (1.0.0)
@@ -219,7 +225,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 5.0)
-  dspace_rest_client (~> 3.0, >= 3.0.0)
+  dspace_rest_client (~> 3.0, >= 3.0.0)!
   jbuilder (~> 2.9, >= 2.9.1)
   jquery-rails
   listen (~> 3.2, >= 3.2.1)
