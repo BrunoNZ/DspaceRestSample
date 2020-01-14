@@ -15,7 +15,8 @@ module ApplicationHelper
   end
 
   def get_image_path(bitstream)
-    return get_bitstream_path(bitstream, 'public/images') || 'no_thumbnail.svg'
+    # return get_bitstream_path(bitstream, 'public/images') || 'no_thumbnail.svg'
+    return 'no_thumbnail.svg'
   end
 
   def retrieve_link_of bitstream
