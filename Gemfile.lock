@@ -237,7 +237,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5.2, >= 5.2.1)
-  tzinfo-data
   uglifier (~> 4.2)
   web-console
   webpacker
